@@ -1,0 +1,16 @@
+.container {
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+  }
+  
+  .cont img {
+    margin-top: 80PX;
+    max-width: 100%; /* Ensures the image stays within the container */
+    width: auto; /* Allows the image to maintain its original width */
+    height: auto; /* Maintains the image aspect ratio */
+  }
+  

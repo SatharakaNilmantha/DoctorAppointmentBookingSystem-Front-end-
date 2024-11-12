@@ -1,0 +1,39 @@
+
+.Navbar{
+  height: 100px;
+}
+/* Button styling */
+  .Navbar .book-button {
+    position: relative;
+    padding:  10px;
+    width: 200px;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #0074cc;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: opacity 0.3s ease; /* Smooth transition on hover */
+}
+
+.Navbar .book-button:hover {
+    opacity: 0.8;
+}
+
+/* To ensure the button is aligned properly with other links */
+.Navbar .ms-auto > .nav-link {
+    display: flex;
+    align-items: center;
+   
+}
+
+
+
+.ms-auto{
+    gap: 20px;
+}
+
+
+  
