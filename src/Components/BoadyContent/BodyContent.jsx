@@ -1,10 +1,13 @@
 import React from 'react'
+import './BodyContent.css'
 import HeroSection from '../HeroSection/HeroSection'
+import AboutSection from '../AboutSection/AboutSection'
 
 function BodyContent() {
   return (
     <>
-     <HeroSection/>
+     <HeroSection/> 
+     <AboutSection id='AboutSection' />
     </>
   )
 }

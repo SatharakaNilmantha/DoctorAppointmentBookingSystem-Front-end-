@@ -4,7 +4,7 @@
     text-decoration: none;
     display: block;
     position: relative;
-    padding: 15px ;
+    padding: 5px 10px 5px  ;
     color: black;
     text-align: center;
   }
@@ -16,7 +16,7 @@
     left: 0;
     bottom: 0;
     background: #fff;
-    transition: 0.5s transform ease;
+    transition: 0.4s transform ease;
     transform: scale3d(0,0,0);
     transform-origin: 0 50%;
   }

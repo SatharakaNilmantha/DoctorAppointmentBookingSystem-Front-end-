@@ -4,12 +4,14 @@ import './NavigationComponent.css'
 import MenuLink from '../MenuLink/MenuLink';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 
+import logo from "../../images/logo/logo.png"
+
 
 function NavigationComponent() {
   return (
     <Navbar bg="light" expand="lg" data-bs-theme="light" className="Navbar">
     <Container>
-        <Navbar.Brand href="#home" className="icon">Navbar</Navbar.Brand>
+        <Navbar.Brand href="#home" className="img"><img src={logo} alt="website logo" /></Navbar.Brand>
         
         {/* This will display the hamburger icon on smaller screens */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -1,6 +1,6 @@
-
 .Navbar{
-  height: 100px;
+
+  background-color:#ffffff!important; 
 }
 /* Button styling */
   .Navbar .book-button {
@@ -28,8 +28,13 @@
     align-items: center;
    
 }
-
-
+.Navbar .img img {
+  height: 70px; /* Set desired image height */
+  width: auto;  /* Adjust width accordingly or set a specific width */
+  object-fit: contain; /* Keeps image proportions */
+ 
+  
+}
 
 .ms-auto{
     gap: 20px;

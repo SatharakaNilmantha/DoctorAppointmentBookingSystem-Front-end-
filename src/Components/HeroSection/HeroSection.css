@@ -1,16 +1,245 @@
-.container {
+
+
+/* Cont styling */
+.cont {
+  position: relative;
+  perspective: 8000px; /* Enables 3D space for child elements */
+}
+
+/* ------------------------------------------------------------------------------------*/
+
+/* Image styling within the container */
+.cont img {
+  position: relative;
+  margin-top: 125px;
+  max-width: 100%;
+  height: auto;
   
+  animation-name: fadeIn1;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes fadeIn1 {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+
+/* ------------------------------------------------------------------------------------*/
+
+
+/* Container for title positioning relative to the image */
+
+.title {
+  position: absolute;
+  top: -700px;               /* Initial position above the container */
+  left: 33%;                 /* Center horizontally */
+  transform: translateX(-50%);
+  animation: slideDown 1s ease-out forwards; /* Smooth slide-down animation */          
+}
+
+/* Title text styling */
+.title h1 {
+  font-weight: bold;
+  font-size: 45px;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  color: #2c4964; 
+}
+
+.title h4 {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  color: #444444;
+}
+
+
+/* Smooth sliding animation for the title */
+@keyframes slideDown {
+  from {
+      top: -500px;  /* Start above the image */
+      opacity: 0;   /* Start with transparent title */
+   
+  }
+  to {
+      top: 25%;     /* End near the center of the image */
+      opacity: 1;   /* Fade into full visibility */
+  }
+}
+
+
+/* ------------------------------------------------------------------------------------*/
+
+/* style of part 1*/
+
+.discription {
+ 
+   position: absolute;
+   top: 420px;
+   left: 120px; 
+   text-align: justify;
+   background-color: rgba(0, 116, 204, 0.9);
+   color: white;
+   width: 400px;
+   padding: 20px;
+   border-radius: 2%;
+   transform: translateX(-70px) translateY(60px); /* Starts further away in 3D space */
+   animation: fadeUp 3S ease-out forwards;
+   font-family: "Roboto", sans-serif;
+}
+
+.button {
+  position: relative;
+  margin-top: 20px;
+  padding:  10px;
+  width: 170px;
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #59a9e6ae;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.3s ease; /* Smooth transition on hover */
+}
+
+.button:hover {
+  background-color: #0074cc;
+  transform: scale(1.05);
+}
+
+
+/* Animation for the text */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateX(-70px) translateY(60px); /* Start with a "far" position */
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0) translateY(0); /* Bring the text closer (towards the viewer) */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) translateY(0); /* Final position */
+  }
+}
+
+/* ------------------------------------------------------------------------------------*/
+
+.rowcontent{
+   position: absolute;
+   top: 445px;
+   left: 560px;
+}
+.discription2{
+  
+  text-align: center;
+  background-color:white ;
+  margin-right: 30px;
+  height: 350px;
+  width: 320px;
+  color: #444444;
+  padding: 20px;
+  border-radius: 2%;
+  transform: translateX(-100px) translateY(50px); /* Starts further away in 3D space */
+  animation: fadeUp1 2S ease-out forwards;
+  font-family: "Roboto", sans-serif;
+  opacity: 0.5;
+}
+
+.P1 {
+  animation-duration: 2.5s; /* Duration for P1 */
+}
+
+.P2 {
+  animation-duration: 4s; /* Duration for P2 */
+}
+
+.P3 {
+  animation-duration: 3.5s; /* Duration for P3 */
+}
+
+/* Animation for the text */
+@keyframes fadeUp1 {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px) translateY(50px); /* Start with a "far" position */
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateX(0) translateY(0); /* Bring the text closer (towards the viewer) */
+  }
+  100% {
+    opacity: 0.8;
+    transform: translateX(0) translateY(0); /* Final position */
+  }
+}
+
+.icon1{
+   color: #0074cc;
+   font-size: 50px;
+}
+
+
+/* Responsive layout for smaller screens */
+@media (max-width: 1500px) {
+  .cont {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
-    
+    background-image: url('../../images/heroimg.jpg'); /* Replace with actual image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
-  
-  .cont img {
-    margin-top: 80PX;
-    max-width: 100%; /* Ensures the image stays within the container */
-    width: auto; /* Allows the image to maintain its original width */
-    height: auto; /* Maintains the image aspect ratio */
+
+ /* Hide the original image element to use background instead */
+ .cont img {
+  display: none;
+}
+
+  /* Adjust title to center over the image */
+  .title {
+
+    position: static;
+    top: 200px;
+    margin-left: 150px;
+    z-index: 1;
+    animation: none; /* Disable slide animation on smaller screens */
   }
-  
+
+  /* Stack description below the title */
+  .discription {
+    position: static;
+    z-index: 1;
+    width: auto;
+    margin: 20px 0;
+    transform: none;
+    animation: none; /* Disable fade animation on smaller screens */
+  }
+
+  /* Stack rowcontent below the description */
+  .rowcontent {
+    position: static;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  /* Make individual descriptions take full width */
+  .discription2 {
+    flex-direction: column;
+    margin: 10px 10px;
+    transform: none;
+    animation: none; /* Disable individual fade animations */
+  }
+}

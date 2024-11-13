@@ -1,0 +1,29 @@
+
+#navbar {
+    position: fixed;
+    top:40PX;
+    width: 100%;
+    transition: top 0.7s ease;
+    z-index: 10; /* Optional: ensures navbar stays on top */
+  }
+
+  #details {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    transition: top 0.5s ease;
+    z-index: 10; /* Optional: ensures navbar stays on top */
+  }
+
+
+  #details, #navbar  {
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
