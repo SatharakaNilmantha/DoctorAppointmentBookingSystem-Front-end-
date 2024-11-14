@@ -7,7 +7,7 @@ function BodyContent() {
   return (
     <>
      <HeroSection/> 
-     <AboutSection id='AboutSection' />
+     <AboutSection />
     </>
   )
 }
