@@ -7,7 +7,8 @@ function BodyContent() {
   return (
     <>
      <HeroSection/> 
-     <AboutSection />
+     <div className='about'><AboutSection/></div>
+     
     </>
   )
 }

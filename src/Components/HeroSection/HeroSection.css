@@ -35,8 +35,8 @@
 
 .title {
   position: absolute;
-  top: -700px;               /* Initial position above the container */
-  left: 33%;                 /* Center horizontally */
+  top: -500px;               /* Initial position above the container */
+  left: 30%;                 /* Center horizontally */
   transform: translateX(-50%);
   animation: slideDown 1s ease-out forwards; /* Smooth slide-down animation */          
 }
@@ -45,13 +45,11 @@
 .title h1 {
   font-weight: bold;
   font-size: 45px;
-  font-family: "Roboto", sans-serif;
   margin: 0;
   color: #2c4964; 
 }
 
 .title h4 {
-  font-family: "Roboto", sans-serif;
   margin: 0;
   color: #444444;
 }
@@ -78,8 +76,8 @@
 .discription {
  
    position: absolute;
-   top: 420px;
-   left: 120px; 
+   top: 335px;
+   left: 25px; 
    text-align: justify;
    background-color: rgba(0, 116, 204, 0.9);
    color: white;
@@ -88,7 +86,7 @@
    border-radius: 2%;
    transform: translateX(-70px) translateY(60px); /* Starts further away in 3D space */
    animation: fadeUp 3S ease-out forwards;
-   font-family: "Roboto", sans-serif;
+ 
 }
 
 .button {
@@ -133,8 +131,8 @@
 
 .rowcontent{
    position: absolute;
-   top: 445px;
-   left: 560px;
+   top: 360px;
+   left: 460px;
 }
 .discription2{
   

@@ -5,7 +5,7 @@
     display: block;
     position: relative;
     padding: 5px 10px 5px  ;
-    color: black;
+    color: #2c4964;
     text-align: center;
   }
   .menu a::before{
