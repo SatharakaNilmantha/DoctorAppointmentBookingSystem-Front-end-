@@ -1,0 +1,124 @@
+#AboutSection{
+    margin-top: 220px;
+}
+
+
+/* ------------------------- About Us Section 3 --------------------------------------------------- */
+
+.cont3 {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.aboutpart4 {
+    width: 300px;
+    height: 330px;
+    margin-right: 20px;
+    box-shadow: 0 4px 8px 0 rgba(255, 253, 253, 0.2), 0 6px 20px 0 rgba(129, 129, 129, 0.19);
+}
+
+@media (max-width: 1500px) {
+    .aboutpart4 {
+        display: block;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .cont3 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
+
+/* ------------------------- About Us Section 4 --------------------------------------------------- */
+
+.cont4 {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: center;
+    gap: 150px;
+    margin: 60px;
+}
+
+.titlesection h1 {
+    color: #2c4964;
+    font-weight: 600;
+    font-size: 60px;
+}
+
+.awardsection {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.awardsection p {
+    background-color: #bdd2ee53;
+    text-align: center;
+    height: 140px;
+}
+
+.p1 {
+    padding-top: 30px;
+}
+
+@media (max-width: 1500px) {
+    .cont4 {
+        display: block;
+        align-items: center;
+        background-color: #b3d3dc29;
+        padding: 20px;
+        width: auto;
+    }
+
+    .titlesection {
+        text-align: center;
+    }
+}
+
+/* ------------------------- Scroll Animation --------------------------------------------------- */
+
+/* Base style for all animated divs */
+.scroll-animation {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Initially moved 50px down */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* When the element is in the viewport, apply animation */
+.scroll-up {
+    animation: scrollUpAnimation 0.5s forwards; /* Apply scrollUpAnimation and don't repeat */
+}
+
+/* Keyframes for the scroll-up animation */
+@keyframes scrollUpAnimation {
+    0% {
+        transform: translateY(50px); /* Start from 50px down */
+        opacity: 0; /* Start as fully transparent */
+    }
+    100% {
+        transform: translateY(0); /* Move to the original position */
+        opacity: 1; /* Become fully visible */
+    }
+}
+
+/* Specific classes for different durations */
+.duration-1 {
+    animation-duration: 1s;
+}
+.duration-2 {
+    animation-duration: 1.5s;
+}
+.duration-3 {
+    animation-duration: 2s;
+}
+.duration-4 {
+    animation-duration: 2.5s;
+}

@@ -18,14 +18,14 @@ function NavigationComponent() {
         
         {/* Collapsible section for nav links */}
         <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="ms-auto d-flex align-items-center gap-2"> {/* Added d-flex, align-items-center, and gap */}
-            <Nav.Link><MenuLink linkName="Home" url="#home" /></Nav.Link>
-            <Nav.Link><MenuLink linkName="About" url="#about" /></Nav.Link>
-            <Nav.Link><MenuLink linkName="Service" url="#service" /></Nav.Link>
-            <Nav.Link><MenuLink linkName="Department" url="#department" /></Nav.Link>
-            <Nav.Link><MenuLink linkName="Contact" url="#contact" /></Nav.Link>
-            <Nav.Link><MenuLink linkName="Login" url="#login" /></Nav.Link>
-            <Nav.Link><a href="#makeanAppoinment" className="book-button">Make an Appointment</a></Nav.Link>
+        <Nav className="ms-auto d-flex align-items-center gap-4"> {/* Added d-flex, align-items-center, and gap */}
+           <MenuLink linkName="Home" url="/" />
+           <MenuLink linkName="About" url="/about" />
+           <MenuLink linkName="Service" url="/service" />
+           <MenuLink linkName="Department" url="#department" />
+           <MenuLink linkName="Contact" url="#contact" />
+           <MenuLink linkName="Login" url="#login" />
+           <a href="#makeanAppoinment" className="book-button">Make an Appointment</a>
         </Nav>
         </Navbar.Collapse>
     </Container>
