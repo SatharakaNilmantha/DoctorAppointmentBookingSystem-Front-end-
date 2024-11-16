@@ -1,0 +1,215 @@
+
+
+.cardStyle{
+
+    display:flex;
+    align-content: center;
+    justify-content: center;
+    
+}
+.cardSection{
+  margin: 50px 153px;
+}
+
+.imgstyle{
+  text-align: center;
+  margin: 20px;
+  margin-bottom: 0;
+  width: auto;
+}
+
+@media (max-width: 1500px) {
+
+    .cardSection{
+        margin: 60px ;
+      }
+
+}
+
+
+.text-with-underline {
+    text-align: center;
+    position: relative;
+    font-size: 54px;
+    color: #2c4964;
+    margin-top: 40px;
+    
+  }
+
+  .text-with-underline::after {
+    content: '';
+    display: block;
+    margin: 0px auto; /* Adjust spacing between text and underline */
+    width: 80px; /* Total width of the blue part */
+    height: 2px; /* Thickness of the underline */
+    background-color: #0074cc;
+    position: relative;
+  }
+
+
+/*------------------------------------card section ---------------------------------*/
+
+.cardStyle {
+    position: relative;
+    overflow: hidden; /* Prevent image effects from spilling outside the card */
+    border-radius: 10px; /* Optional: Rounded corners for the card */
+  }
+   
+  .cardStyle::before {
+    position: absolute;
+    top: 0;
+    left: -75%;
+    z-index: 2;
+    content: '';
+    display: block;
+    width: 50%;
+    height: 100%;
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.216) 0%, rgba(255, 255, 255, 0.118) 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(71, 142, 214, 0.127) 100%);
+    -webkit-transform: skewX(-25deg);
+    transform: skewX(-25deg);
+  }
+  
+  .cardStyle:hover::before {
+    -webkit-animation: shine 1s;
+    animation: shine 1s;
+  }
+  
+  @-webkit-keyframes shine {
+    100% {
+      left: 125%;
+    }
+  }
+  
+  @keyframes shine {
+    100% {
+      left: 125%;
+    }
+  }
+  
+  /*--------------------------------------tab section-------------*/
+
+.depsection{
+    margin-top: 70px;
+}
+
+
+
+.tabSection{
+     display: grid;
+     margin: 100px;
+  }
+
+.Pane{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    
+}
+
+.imgdep{
+    width: 300px;
+}
+
+.aboutdep{
+   padding-right: 20px;
+  
+}
+
+.nav-pills .nav-link{
+    color: #2c4964;
+    font-weight: 600;
+    
+}
+
+.nav-pills .nav-link.active {
+    border-right: 2px solid #0074cc;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0;
+    color: #0074cc;
+  }
+
+.linksec{
+    border-right: 1px #2c496427 solid;
+}
+
+.nav .nav-item{
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+
+/* Responsive Design for Small Screens */
+@media (max-width: 1300px) 
+{
+    .tabSection {
+        display: flex; /* Use block layout to stack content */
+        justify-content: center;
+        align-items: center;
+        margin: 10px; /* Compact the outer margins */
+        padding: 10px; /* Reduce padding */
+        
+    }
+
+    .Pane {
+        display: flex;
+        grid-template-columns: auto;
+        flex-wrap: wrap-reverse;
+       
+    }
+
+
+    .nav-pills {
+        display: grid;
+        flex-wrap: wrap; /* Wrap navigation links if needed */
+       
+    
+    }
+
+    .nav-pills .nav-link {
+      
+        padding: 10px; /* Adjust padding for touch devices */
+        width: 100%; /* Make each link span full width */
+        max-width: 300px; /* Limit maximum width */
+        margin: 0 auto; /* Center links */
+    }
+
+    .minimize{
+       
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+
+
+
+
+
+  
+
+/* ------------------------- Scroll Animation --------------------------------------------------- */
+
+/* Base style for all animated divs */
+.scroll-animation {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Initially moved 50px down */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* When the element is in the viewport, apply animation */
+.scroll-up {
+    animation: scrollUpAnimation 0.5s forwards; /* Apply scrollUpAnimation and don't repeat */
+}
+
+/* Keyframes for the scroll-up animation */
+@keyframes scrollUpAnimation {
+    0% {
+        transform: translateY(50px); /* Start from 50px down */
+        opacity: 0; /* Start as fully transparent */
+    }
+    100% {
+        transform: translateY(0); /* Move to the original position */
+        opacity: 1; /* Become fully visible */
+    }
+}
+
