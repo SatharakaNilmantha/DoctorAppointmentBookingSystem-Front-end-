@@ -106,86 +106,8 @@
     
 }
 
-.imgdep{
-    width: 300px;
-}
-
-.aboutdep{
-   padding-right: 20px;
-  
-}
-
-.nav-pills .nav-link{
-    color: #2c4964;
-    font-weight: 600;
-    
-}
-
-.nav-pills .nav-link.active {
-    border-right: 2px solid #0074cc;
-    background-color: rgb(255, 255, 255);
-    border-radius: 0;
-    color: #0074cc;
-  }
-
-.linksec{
-    border-right: 1px #2c496427 solid;
-}
-
-.nav .nav-item{
-    padding-bottom: 5px;
-    padding-top: 5px;
-}
 
 
-/* Responsive Design for Small Screens */
-@media (max-width: 1300px) 
-{
-    .tabSection {
-        display: flex; /* Use block layout to stack content */
-        justify-content: center;
-        align-items: center;
-        margin: 10px; /* Compact the outer margins */
-        padding: 10px; /* Reduce padding */
-        
-    }
-
-    .Pane {
-        display: flex;
-        grid-template-columns: auto;
-        flex-wrap: wrap-reverse;
-       
-    }
-
-
-    .nav-pills {
-        display: grid;
-        flex-wrap: wrap; /* Wrap navigation links if needed */
-       
-    
-    }
-
-    .nav-pills .nav-link {
-      
-        padding: 10px; /* Adjust padding for touch devices */
-        width: 100%; /* Make each link span full width */
-        max-width: 300px; /* Limit maximum width */
-        margin: 0 auto; /* Center links */
-    }
-
-    .minimize{
-       
-        flex-direction: row;
-        align-items: center;
-    }
-}
-
-
-
-
-
-
-  
 
 /* ------------------------- Scroll Animation --------------------------------------------------- */
 
