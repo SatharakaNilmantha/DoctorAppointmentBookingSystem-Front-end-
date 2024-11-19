@@ -22,7 +22,7 @@ function NavigationComponent() {
            <MenuLink linkName="Home" url="/" />
            <MenuLink linkName="About" url="/about" />
            <MenuLink linkName="Service" url="/service" />
-           <MenuLink linkName="Department" url="#department" />
+           <MenuLink linkName="Department" url="/department" />
            <MenuLink linkName="Contact" url="#contact" />
            <MenuLink linkName="Login" url="#login" />
            <a href="#makeanAppoinment" className="book-button">Make an Appointment</a>

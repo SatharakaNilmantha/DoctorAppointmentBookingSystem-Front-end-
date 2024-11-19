@@ -16,7 +16,7 @@ import Departmentimg5 from '../../images/Department/departments-5.jpg'
 
 
 
-function DepartmentSection() {
+function DepartmentSection(props) {
 
    
 
@@ -115,8 +115,10 @@ function DepartmentSection() {
                         <h2 style={{ fontWeight:'600' , color:'#2c4964'}}>{department.title}</h2>
                         <p style={{ marginTop:'20px ' ,color:'#444444 ', fontSize:'18px'}}><em>{department.description}</em></p>
                         <p style={{ marginTop:'20px ' ,color:'#444444' ,  fontSize:'18px'}}>{department.content}</p>
+                        <div>{props.children}</div>
                     </div>
                     <div><img className='imgdep' src={department.imgSrc} alt={department.description} /></div>
+                    
                     </div>
                 </Tab.Pane>
             </Tab.Content>
