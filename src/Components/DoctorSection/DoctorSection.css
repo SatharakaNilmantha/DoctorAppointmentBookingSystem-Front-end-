@@ -1,0 +1,40 @@
+.text-with-underline1 {
+    text-align: center;
+    position: relative;
+    font-size: 54px;
+    color: #2c4964;
+    margin-top: 40px;
+    
+  }
+
+  .text-with-underline1::after {
+    content: '';
+    display: block;
+    margin: 0px auto; /* Adjust spacing between text and underline */
+    width: 80px; /* Total width of the blue part */
+    height: 2px; /* Thickness of the underline */
+    background-color: #0074cc;
+    position: relative;
+  }
+
+  .cardSection{
+     
+     text-align: center;
+  }
+
+  /* Set default tab color */
+.nav-tabs .nav-link {
+    color: black; /* Text color for tabs */
+}
+
+/* Highlight active tab */
+.nav-tabs .nav-link.active {
+    background-color:#0074cc; /* Background color for active tab */
+    color: white; /* Text color for active tab */
+}
+
+/* Add hover effect */
+.nav-tabs .nav-link:hover {
+    background-color: #0074cc2e;/* Background on hover */
+    color: black; /* Text color on hover */
+}
