@@ -1,0 +1,31 @@
+.text-with-underline2 {
+    text-align: center;
+    position: relative;
+    font-size: 45px;
+    color: #2c4964;
+    margin-top: 40px;
+    
+  }
+
+  .text-with-underline2::after {
+    content: '';
+    display: block;
+    margin: 0px auto; /* Adjust spacing between text and underline */
+    width: 80px; /* Total width of the blue part */
+    height: 3px; /* Thickness of the underline */
+    background-color: #0074cc;
+    position: relative;
+  }
+
+.quesionSection{
+    background-color: #f1f7fc;
+    padding: 20px;
+}
+.AccordionSection{
+    margin-top: 70px;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 50px;
+}
+
+

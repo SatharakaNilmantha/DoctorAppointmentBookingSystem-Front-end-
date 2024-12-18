@@ -9,6 +9,7 @@ import AboutSection  from './Components/AboutSection/AboutSection'
 import ServiceSection from './Components/ServiceSection/ServiceSection';
 import DepartmentSection from './Components/DepartmentSection/DepartmentSection';
 import DoctorSection from './Components/DoctorSection/DoctorSection';
+import SubSection from './Components/SubSection/SubSection';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
          <div><ServiceSection/></div>
          <div><DepartmentSection/></div>
          <div><DoctorSection/></div>
+         <div><SubSection/></div>
      </BodyComponent>
     </div>
   );

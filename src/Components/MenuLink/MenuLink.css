@@ -1,30 +1,35 @@
+.menu a {
+  font-size: 17px;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  padding: 5px 10px 5px;
+  color: #2c4964;
+  text-align: center;
+}
 
-.menu a{
-    font-size: 17px;
-    text-decoration: none;
-    display: block;
-    position: relative;
-    padding: 5px 10px 5px  ;
-    color: #2c4964;
-    text-align: center;
-  }
-  .menu a::before{
-    content: "";
-    width: 100%;
-    height: 4px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    background: #fff;
-    transition: 0.4s transform ease;
-    transform: scale3d(0,0,0);
-    transform-origin: 0 50%;
-  }
-  .menu a:hover::before{
-    transform: scale3d(1,0.5,0.5);
-  }
+.menu a::before {
+  content: "";
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+  transition: 0.4s transform ease;
+  transform: scale3d(0, 0, 0);
+  transform-origin: 0 50%;
+}
 
-  .menu-2 a::before{
-    background: #0074cc;
-  }
+.menu a:hover::before {
+  transform: scale3d(1, 0.5, 0.5);
+}
 
+.menu-2 a::before {
+  background: #0074cc;
+}
+
+.menu a.active::before {
+  transform: scale3d(1, 0.5, 0.5); /* Keep the line for active link */
+  
+}

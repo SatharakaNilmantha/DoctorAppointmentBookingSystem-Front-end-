@@ -24,8 +24,8 @@ function NavigationComponent() {
            <MenuLink linkName="Service" url="/service" />
            <MenuLink linkName="Department" url="/department" />
            <MenuLink linkName="Doctors" url="/doctors" />
-           <MenuLink linkName="Contact" url="#contact" />
-           <a href="#createAcount" className="book-button">Create Acount</a>
+           <MenuLink linkName="Contact" url="/contact" />
+           <a href="#createAcount" className="book-button">Create Account</a>
         </Nav>
         </Navbar.Collapse>
     </Container>
