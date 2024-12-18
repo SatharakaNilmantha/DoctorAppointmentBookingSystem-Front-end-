@@ -1,9 +1,7 @@
 
-
 /* Cont styling */
 .cont {
   position: relative;
-  perspective: 8000px; /* Enables 3D space for child elements */
 }
 
 /* ------------------------------------------------------------------------------------*/
@@ -73,22 +71,21 @@
 
 /* style of part 1*/
 
+/* Description styling */
 .discription {
- 
-   position: absolute;
-   top: 335px;
-   left: 25px; 
-   text-align: justify;
-   background-color: rgba(0, 116, 204, 0.9);
-   color: white;
-   width: 400px;
-   padding: 20px;
-   border-radius: 2%;
-   transform: translateX(-70px) translateY(60px); /* Starts further away in 3D space */
-   animation: fadeUp 3S ease-out forwards;
- 
+  position: absolute;
+  top: 335px;
+  left: 25px; 
+  text-align: justify;
+  background-color: rgba(0, 116, 204, 0.9);
+  color: white;
+  width: 400px;
+  padding: 20px;
+  border-radius: 2%;
+  animation: scaleDown 1s ease-out forwards; /* Apply scale-down animation */
 }
 
+/* Button styling */
 .button {
   position: relative;
   margin-top: 20px;
@@ -102,7 +99,6 @@
   color: white;
   font-size: 16px;
   cursor: pointer;
-  transition: opacity 0.3s ease; /* Smooth transition on hover */
 }
 
 .button:hover {
@@ -110,72 +106,67 @@
   transform: scale(1.05);
 }
 
-
-/* Animation for the text */
-@keyframes fadeUp {
+/* Scale-down animation */
+@keyframes scaleDown {
   0% {
+    transform: scale(1.2); /* Start slightly larger */
     opacity: 0;
-    transform: translateX(-70px) translateY(60px); /* Start with a "far" position */
-  }
-  50% {
-    opacity: 1;
-    transform: translateX(0) translateY(0); /* Bring the text closer (towards the viewer) */
   }
   100% {
+    transform: scale(1); /* End at normal size */
     opacity: 1;
-    transform: translateX(0) translateY(0); /* Final position */
   }
 }
+
 
 /* ------------------------------------------------------------------------------------*/
 
 .rowcontent{
-   position: absolute;
-   top: 360px;
-   left: 460px;
+  position: absolute;
+  top: 360px;
+  left: 460px;
 }
+
 .discription2{
-  
-  text-align: center;
-  background-color:white ;
-  margin-right: 30px;
-  height: 350px;
-  width: 320px;
-  color: #444444;
-  padding: 20px;
-  border-radius: 2%;
-  transform: translateX(-100px) translateY(50px); /* Starts further away in 3D space */
-  animation: fadeUp1 2S ease-out forwards;
-  font-family: "Roboto", sans-serif;
-  opacity: 0.5;
+ text-align: center;
+ background-color: white;
+ margin-right: 30px;
+ height: 350px;
+ width: 320px;
+ color: #444444;
+ padding: 20px;
+ border-radius: 2%;
+ animation: scaleDownEffect 2s ease-out forwards; /* Apply scale-down effect */
+ font-family: "Roboto", sans-serif;
+ opacity: 0.5;
 }
 
 .P1 {
-  animation-duration: 2.5s; /* Duration for P1 */
+ animation-duration: 2.5s; /* Duration for P1 */
 }
 
 .P2 {
-  animation-duration: 4s; /* Duration for P2 */
+ animation-duration: 4s; /* Duration for P2 */
 }
 
 .P3 {
-  animation-duration: 3.5s; /* Duration for P3 */
+ animation-duration: 3.5s; /* Duration for P3 */
 }
 
-/* Animation for the text */
-@keyframes fadeUp1 {
-  0% {
-    opacity: 0;
-    transform: translateX(-100px) translateY(50px); /* Start with a "far" position */
-  }
-  50% {
-    opacity: 0.8;
-    transform: translateX(0) translateY(0); /* Bring the text closer (towards the viewer) */
-  }
-  100% {
-    opacity: 0.8;
-    transform: translateX(0) translateY(0); /* Final position */
-  }
+/* Animation for the scale-down effect */
+@keyframes scaleDownEffect {
+ 0% {
+   opacity: 0;
+   transform: scale(1.2); /* Start larger */
+ }
+ 50% {
+   opacity: 0.8;
+   transform: scale(1); /* Scale down to normal size */
+ }
+ 100% {
+   opacity: 1;
+   transform: scale(1); /* Final position */
+ }
 }
 
 .icon1{

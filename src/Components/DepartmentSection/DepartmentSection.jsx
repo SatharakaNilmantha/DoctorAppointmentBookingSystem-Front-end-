@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect } from 'react';
 import './DepartmentSection.css'
 
 import Nav from 'react-bootstrap/Nav';
@@ -16,7 +16,7 @@ import Departmentimg5 from '../../images/Department/departments-5.jpg'
 
 
 
-function DepartmentSection(props) {
+function DepartmentSection() {
 
    
 
@@ -88,46 +88,54 @@ function DepartmentSection(props) {
   return (
     <>
      {/*--------------------------------------Department section -------------------------------------------------*/ }
-     <div className='depsection'>
-        <div className='scroll-animation'>
-            <h1  className='text-with-underline'>Department</h1>
-            <p style={{textAlign:'center',marginTop:'30px'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus aspernatur qui molestiae minus at soluta quaerat, officiis minima placeat nisi voluptatibus </p>
-        </div>
+     <div className="depsection">
+  <div className="scroll-animation">
+    <h1 className="text-with-underline">Department</h1>
+    <p style={{ textAlign: "center", marginTop: "30px" }}>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus aspernatur qui molestiae minus at soluta quaerat, officiis minima placeat nisi voluptatibus
+    </p>
+  </div>
+
+  <div className="tabSection scroll-animation">
+    <Tab.Container id="left-tabs-example" defaultActiveKey="1">
+
+      <Row className="minimize">
         
-        <div className='tabSection scroll-animation'>
-        <Tab.Container id="left-tabs-example" defaultActiveKey="1">
-        <Row className='minimize'>
-            <Col sm={2} >
-            <Nav variant="pills" className="flex-column linksec">
-            {departmentData.map(department => (
-                <Nav.Item>
+        <Col sm={2}>
+          <Nav variant="pills" className="flex-column linksec">
+            {departmentData.map((department) => (
+              <Nav.Item key={`nav-item-${department.title}`}>
                 <Nav.Link eventKey={String(department.eventKey)}>{department.title}</Nav.Link>
-                </Nav.Item>
-            ))} 
-            </Nav>
-            </Col>
-            <Col sm={10}>
-            {departmentData.map(department => (
-            <Tab.Content>
-                <Tab.Pane eventKey={String(department.eventKey)}>
-                <div className='Pane'>
-                    <div className='aboutdep'>
-                        <h2 style={{ fontWeight:'600' , color:'#2c4964'}}>{department.title}</h2>
-                        <p style={{ marginTop:'20px ' ,color:'#444444 ', fontSize:'18px'}}><em>{department.description}</em></p>
-                        <p style={{ marginTop:'20px ' ,color:'#444444' ,  fontSize:'18px'}}>{department.content}</p>
-                        <div>{props.children}</div>
-                    </div>
-                    <div><img className='imgdep' src={department.imgSrc} alt={department.description} /></div>
-                    
-                    </div>
-                </Tab.Pane>
-            </Tab.Content>
-            ))} 
-            </Col>
-        </Row>
-        </Tab.Container>
-        </div>
-     </div>   
+              </Nav.Item>
+            ))}
+          </Nav>
+        </Col>
+
+        <Col sm={10}>
+          <Tab.Content key="tab-content">
+            {departmentData.map((department) => (
+              <Tab.Pane eventKey={String(department.eventKey)} key={`tab-pane-${department.title}`}>
+                <div className="Pane">
+                  <div className="aboutdep">
+                    <h2 style={{ fontWeight: "600", color: "#2c4964" }}>{department.title}</h2>
+                    <p style={{marginTop: "20px ",color: "#444444 ",fontSize: "18px",}}><em>{department.description}</em></p>
+                    <p style={{marginTop: "20px ",color: "#444444",fontSize: "18px",}}>{department.content}</p>
+                  </div>
+
+                  <div><img className="imgdep" src={department.imgSrc} alt={department.description}/></div>
+
+                </div>
+              </Tab.Pane>
+            ))}
+          </Tab.Content>
+        </Col>
+
+      </Row>
+
+    </Tab.Container>
+  </div>
+</div>
+ 
     </>
   )
 }

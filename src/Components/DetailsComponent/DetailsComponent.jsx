@@ -2,7 +2,7 @@ import React from 'react'
 import './DetailsComponent.css'
 
 import { IoMailOpenOutline } from "react-icons/io5";
-import { MdPhoneIphone ,MdFacebook} from "react-icons/md";
+import { MdPhoneIphone} from "react-icons/md";
 import { BsTwitterX ,BsInstagram ,BsFacebook } from "react-icons/bs";
 import { FaLinkedin } from "react-icons/fa6";
 

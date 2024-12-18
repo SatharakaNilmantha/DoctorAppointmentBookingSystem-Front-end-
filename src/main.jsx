@@ -11,6 +11,7 @@ import App from './App.jsx'
 import About from './pages/AboutPage/AboutPage.jsx'
 import Service from './pages/ServicePage/ServicePage.jsx';
 import Department from './pages/DepartmentPage/DepartmentPage.jsx'
+import Doctors from './pages/DoctorsPage/DoctorsPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/department",
     element: <Department/>,
+  },
+  {
+    path: "/doctors",
+    element: <Doctors/>,
   },
 
 ]);

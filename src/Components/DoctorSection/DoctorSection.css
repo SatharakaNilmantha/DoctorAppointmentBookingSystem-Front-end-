@@ -17,14 +17,10 @@
     position: relative;
   }
 
-  .cardSection{
-     
-     text-align: center;
-  }
-
   /* Set default tab color */
 .nav-tabs .nav-link {
-    color: black; /* Text color for tabs */
+  color: #2c4964;
+  font-weight: 600; /* Text color for tabs */
 }
 
 /* Highlight active tab */
@@ -36,5 +32,149 @@
 /* Add hover effect */
 .nav-tabs .nav-link:hover {
     background-color: #0074cc2e;/* Background on hover */
-    color: black; /* Text color on hover */
+    color: #2c4964;             /* Text color on hover */
+    font-weight: 600;
+    
+}
+
+/*---------------------------------------------------------*/
+
+.cardSection1 {
+  margin: 80px;
+}
+
+.cards {
+  margin-top: 50px;
+  animation: scale-up 0.5s ease-in-out;
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.card1 {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0.1px 1px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.card1:hover {
+  transform: scale(1.05); /* Slightly enlarge the card */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.image {
+  width: 150px;
+  margin-left: 20px;
+  border-radius: 100%;
+}
+
+.iconpart {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.iconsvg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: #a5a5a52f;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.iconsvg:hover {
+  opacity: 0.6;
+}
+
+
+.book-button1{
+  padding:  10px;
+  width: 200px;
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #265071cb;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.3s ease; /* Smooth transition on hover */
+}
+
+.book-button1:hover {
+  background-color: #265071d9;
+}
+
+/* Media Queries for Responsiveness */
+
+/* On smaller screens, stack the cards vertically (1 column) */
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr !important;
+    gap: 20px; /* Adjust gap between cards */
+  }
+
+  .card1 {
+    margin: 10px;
+  }
+
+  .image {
+    width: 120px; /* Reduce image size */
+    margin-left: 20px;
+    margin-right: auto;
+  }
+
+  .iconpart {
+    gap: 20px; /* Reduce gap between icons */
+  }
+
+  .cardSection1 {
+    margin: 20px;
+  }
+}
+
+
+
+
+
+
+
+/* ------------------------- Scroll Animation --------------------------------------------------- */
+
+/* Base style for all animated divs */
+.scroll-animation {
+  opacity: 0; /* Initially hidden */
+  transform: translateY(50px); /* Initially moved 50px down */
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* When the element is in the viewport, apply animation */
+.scroll-up {
+  animation: scrollUpAnimation 0.5s forwards; /* Apply scrollUpAnimation and don't repeat */
+}
+
+/* Keyframes for the scroll-up animation */
+@keyframes scrollUpAnimation {
+  0% {
+      transform: translateY(50px); /* Start from 50px down */
+      opacity: 0; /* Start as fully transparent */
+  }
+  100% {
+      transform: translateY(0); /* Move to the original position */
+      opacity: 1; /* Become fully visible */
+  }
 }
