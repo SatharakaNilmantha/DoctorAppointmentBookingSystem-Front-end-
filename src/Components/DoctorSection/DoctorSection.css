@@ -70,7 +70,7 @@
 }
 
 .card1:hover {
-  transform: scale(1.05); /* Slightly enlarge the card */
+  transform: scale(1.01); /* Slightly enlarge the card */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 

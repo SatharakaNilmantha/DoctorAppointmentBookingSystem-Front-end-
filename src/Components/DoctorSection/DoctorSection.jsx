@@ -19,6 +19,12 @@ import doctor4 from "../../images/doctors/doctors-4.jpg";
 import doctor5 from "../../images/doctors/doctors-5.jpg";
 import doctor6 from "../../images/doctors/doctors-6.jpg";
 
+
+
+
+
+
+
 function DoctorSection() {
 
     const Doctors = [
@@ -106,7 +112,7 @@ function DoctorSection() {
     {/*--------------------------------------card section -------------------------------------------------*/ }
     <div className='cardSection1 '>
 
-      <Tabs defaultActiveKey="All_Department" id="fill-tab-example" className="mb-3" fill>
+      <Tabs defaultActiveKey="All_Department" id="fill-tab-example" className="mb-3 scroll-animation" fill>
         <Tab eventKey="All_Department" title="All Department">
             <Row xs={1} md={2} className="cards ">
             {Doctors.map((doctor) => (

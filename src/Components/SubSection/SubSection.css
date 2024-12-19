@@ -3,7 +3,7 @@
     position: relative;
     font-size: 45px;
     color: #2c4964;
-    margin-top: 40px;
+    margin-top: 20px;
     
   }
 
@@ -28,4 +28,238 @@
     margin-bottom: 50px;
 }
 
+/*-----------------------------Testimonialsection----------------------------------------------------------*/
+.Testimonialsection {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+  gap: 20px; /* Add space between grid items */
+}
 
+/* ------ Slide section --------- */
+.slidesection {
+  width: 700px;
+  height: inherit;
+  box-shadow: 0.1px 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  padding-bottom: 50px;
+}
+
+.slidecard {
+  display: grid;
+  grid-template-rows: auto;
+  width: auto;
+}
+
+.cardtitle {
+  display: grid;
+  grid-template-columns: 100px auto;
+  align-items: center;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.pimg {
+  width: 90px;
+  border-radius: 50px;
+}
+
+/* Customize the dots */
+.slick-dots li button:before {
+  font-family: "slick";
+  font-size: 12px; /* Increase the size of the dots */
+  line-height: 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  content: "•";
+  text-align: center;
+  color: #0074cc !important; /* Set default (inactive) dot color to blue */
+  opacity: 0.5; /* Adjust the opacity of inactive dots */
+  transition: color 0.3s, opacity 0.3s, font-size 0.1s; /* Smooth transition for changes */
+}
+
+.slick-dots li.slick-active button:before {
+  font-size: 14px; /* Increase size for the active dot */
+  color: #0074cc; /* Keep the active dot blue */
+  opacity: 1; /* Fully visible for the active dot */
+}
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 1000px) {
+
+  .Testimonialsection {
+    display: grid;
+    grid-template-columns: 1fr; /* Stack the items in one column */
+    margin: 20px; /* Reduce margin for smaller screens */
+    gap: 10px; /* Reduce the space between items */
+  }
+
+
+}
+
+/* ------------------------------------------Gallery Container-------------------------------------------------- */
+.gallery-container {
+  width: 80%;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.gallery-title {
+  font-size: 2em;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.gallery-grid {
+  display: grid;
+  gap: 20px;
+  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 50px;
+}
+
+.gallery-item {
+  width: 100%;
+  height: auto;
+}
+
+.gallery-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000040;
+  padding: 20px;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #f1efef;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10000; /* Ensure close button is always on top */
+}
+
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-image {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+
+button {
+  background-color: transparent;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  z-index: 10000; /* Ensure buttons are on top */
+}
+
+button:hover {
+  color: #ddd;
+}
+
+.prev {
+  position: absolute;
+  left: 10px;
+}
+
+.next {
+  position: absolute;
+  right: 10px;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ------------------------- Scroll Animation --------------------------------------------------- */
+
+/* Base style for all animated divs */
+.scroll-animation {
+  opacity: 0; /* Initially hidden */
+  transform: translateY(50px); /* Initially moved 50px down */
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* When the element is in the viewport, apply animation */
+.scroll-up {
+  animation: scrollUpAnimation 0.5s forwards; /* Apply scrollUpAnimation and don't repeat */
+}
+
+/* Keyframes for the scroll-up animation */
+@keyframes scrollUpAnimation {
+  0% {
+      transform: translateY(50px); /* Start from 50px down */
+      opacity: 0; /* Start as fully transparent */
+  }
+  100% {
+      transform: translateY(0); /* Move to the original position */
+      opacity: 1; /* Become fully visible */
+  }
+}

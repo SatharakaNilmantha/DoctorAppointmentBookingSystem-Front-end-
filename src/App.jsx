@@ -2,7 +2,7 @@
 import './App.css';
 
 import HeaderContent from './Components/HeaderContent/HeaderContent'
-import BodyComponent from "./Components/BoadyContent/BodyContent"
+import BodyContent from "./Components/BoadyContent/BodyContent"
 import HeroSection   from './Components/HeroSection/HeroSection'
 import AboutSection  from './Components/AboutSection/AboutSection'
 
@@ -16,14 +16,14 @@ function App() {
   return (
     <div>
      <HeaderContent/>
-     <BodyComponent>
+     <BodyContent>
          <div><HeroSection/></div>
          <div><AboutSection/></div>
          <div><ServiceSection/></div>
          <div><DepartmentSection/></div>
          <div><DoctorSection/></div>
          <div><SubSection/></div>
-     </BodyComponent>
+     </BodyContent>
     </div>
   );
 }
