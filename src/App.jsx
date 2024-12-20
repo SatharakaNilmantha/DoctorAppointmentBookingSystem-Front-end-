@@ -11,6 +11,7 @@ import DepartmentSection from './Components/DepartmentSection/DepartmentSection'
 import DoctorSection from './Components/DoctorSection/DoctorSection';
 import SubSection from './Components/SubSection/SubSection';
 import ContactSection from './Components/ContactSection/ContactSection';
+import FooterContent from './Components/FooterContent/FooterContent';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
          <div><DoctorSection/></div>
          <div><SubSection/></div>
          <div><ContactSection/></div>
+         <div><FooterContent/></div>
      </BodyContent>
     </div>
   );

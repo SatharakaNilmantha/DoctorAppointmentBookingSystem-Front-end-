@@ -1,0 +1,194 @@
+.footer {
+    display: grid;
+    grid-template-columns: 40% auto auto auto;
+    padding: 60px 50px 0 70px;
+    color: #4a4a4a;
+    font-family: Arial, sans-serif;
+    margin-top: 100px;
+    border-top: 1px #007bff7b solid;
+    gap: 20px; /* Added gap for better spacing */
+    
+  }
+  
+  .footer-section {
+    margin: 0 20px;
+  }
+  
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    width: 90px;
+    height: 90px;
+    margin-right: 15px;
+  }
+  
+  .footer-brand {
+    color: #007bff; /* Blue color for "BOOKMYDOCTOR" */
+    font-size: 27px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .logo-subtitle {
+    color: #28a746b3; /* Green color for "Medical Center" */
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+    letter-spacing: 5px; /* Add spacing for a clean look */
+  }
+  
+  .footer-description {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-top: 20px;
+  
+  }
+  
+  .footer-social-icons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .social-icon {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px #333 solid ;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 6px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .footer-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: inline-block;
+    color: #2c4964;
+  }
+  
+  .footer-line {
+    width: 40px;
+    border-top: 5px solid #024f9cfb;
+    margin: 25px 0;
+    opacity: 1;
+  }
+  
+  .footer-list {
+    list-style: none;
+    padding: 0;
+    line-height: 2;
+    font-size: 16px;
+  }
+  
+  .footer-list a {
+    text-decoration: none;
+    color: #4a4a4a;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .footer-list a:hover {
+    color: #007bff;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 1200px) {
+    .footer {
+      grid-template-columns: 50% auto auto;
+      padding: 40px 30px;
+    }
+    .footer-logo {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .logo {
+      margin-bottom: 10px;
+    }
+    .footer-line {
+         display: none;
+      }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .footer {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .footer-section {
+      margin: 20px 0;
+    }
+    .footer-logo {
+      flex-direction: column;
+      align-items: center;
+    }
+    .footer-social-icons {
+      justify-content: center;
+    }
+  }
+  
+/*-------------------------------------------------------------------------------------------*/
+  .footerDetails a {
+    text-decoration: none;
+    color: #777; /* Default link color */
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transition */
+  }
+  
+  .footerDetails a:hover {
+    color: #0056a3; /* Darker shade for hover effect */
+    text-decoration: underline; /* Underline on hover for emphasis */
+  }
+  
+  .fhr {
+    border: none;
+    border-top: 1px solid #908f8f;
+    width: 90%; /* You can adjust the width as needed */
+    margin: 30px auto; /* This centers the <hr> horizontally */
+    text-align: center;
+  }
+  
+  .fhr::before {
+    content: " "; /* Adds a space for centering */
+    display: block;
+    position: relative;
+    top: -10px; /* Adjusts the positioning of the content */
+    background-color: #fff; /* Matches the background to make it appear centered */
+  }
+  
+
+  
+/* ------------------------- Scroll Animation --------------------------------------------------- */
+
+/* Base style for all animated divs */
+.scroll-animation {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Initially moved 50px down */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  }
+  
+  /* When the element is in the viewport, apply animation */
+  .scroll-up {
+    animation: scrollUpAnimation 0.5s forwards; /* Apply scrollUpAnimation and don't repeat */
+  }
+  
+  /* Keyframes for the scroll-up animation */
+  @keyframes scrollUpAnimation {
+    0% {
+        transform: translateY(50px); /* Start from 50px down */
+        opacity: 0; /* Start as fully transparent */
+    }
+    100% {
+        transform: translateY(0); /* Move to the original position */
+        opacity: 1; /* Become fully visible */
+    }
+  }

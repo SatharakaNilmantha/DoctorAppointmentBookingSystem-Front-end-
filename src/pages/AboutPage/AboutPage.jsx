@@ -3,6 +3,7 @@ import './AboutPage.CSS'
 import HeaderContent from '../../Components/HeaderContent/HeaderContent'
 import BodyContent from '../../Components/BoadyContent/BodyContent'
 import AboutSection from '../../Components/AboutSection/AboutSection'
+import FooterContent from '../../Components/FooterContent/FooterContent'
 
 
 import AboutImg1 from '../../images/about/about-1.jpg'
@@ -98,6 +99,8 @@ useEffect(() => {
         </div>
           </div>
      </BodyContent>
+
+     <FooterContent/>
      
      
     </>

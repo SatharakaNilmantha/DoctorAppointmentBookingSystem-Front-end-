@@ -49,7 +49,7 @@ function ContactSection() {
             <p style={{textAlign:'center',marginTop:'30px',marginBottom:'30px'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus aspernatur qui molestiae minus at soluta quaerat, officiis minima placeat nisi voluptatibus </p>
         </div>
        
-        <div className='scroll-animation'><iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126582.79700551226!2d79.7044445972656!3d7.496970000000008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2cf002348252f%3A0x5ebae604d6d30c8c!2sMedical%20Center!5e0!3m2!1sen!2slk!4v1734672449328!5m2!1sen!2slk" width="100%" height="350" style={{border:0}} loading="lazy" allowFullScreen="true" referrerPolicy="no-referrer" ></iframe></div>
+        <div className='scroll-animation'><iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126582.79700551226!2d79.7044445972656!3d7.496970000000008!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2cf002348252f%3A0x5ebae604d6d30c8c!2sMedical%20Center!5e0!3m2!1sen!2slk!4v1734672449328!5m2!1sen!2slk" width="100%" height="350" style={{border:0}} loading="lazy" allowFullScreen={true} referrerPolicy="no-referrer" ></iframe></div>
        
     <div className='contactSection scroll-animation'>
         
@@ -90,11 +90,11 @@ function ContactSection() {
             </Form.Group>
         </Row>
 
-        <Form.Group className="mb-3" controlId="formGridAddress1" >
+        <Form.Group className="mb-3" controlId="formGridSubject" >
         <Form.Control type="text" style={{height:'40px'}}  placeholder="Subject" />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formGridAddress1">
+        <Form.Group className="mb-3" controlId="formGridMessage">
         <Form.Control as="textarea"   rows={5} placeholder="Write your message here..." />
         </Form.Group>
 

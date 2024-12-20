@@ -19,66 +19,95 @@
 
 /*----------------------------------------------------------------------*/
 
-.contactSection{
-    display: grid;
-    grid-template-columns: 500px auto;
-    margin: 80px 70px 0px;
-    align-items: baseline baseline;
+.contactSection {
+  display: grid;
+  grid-template-columns: 500px auto;
+  margin: 80px 70px 0px;
+  align-items: baseline baseline;
+  gap: 20px;
 }
 
+/* Section layout */
 .section1 {
-    display: grid;
-    grid-template-columns: 50px auto;
-    align-items: center;
-    margin-bottom: 20px;
-    
- 
+  display: grid;
+  grid-template-columns: 50px auto;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.con_icon{
-    background-color: #0074cc;
-    font-size: 30px;
-    text-align: center;
-    border-radius: 100%;
-    color: aliceblue;
-    
-    
+.con_icon {
+  background-color: #0074cc;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 100%;
+  color: aliceblue;
 }
 
-
-/* ------------------------------------------------------------------------------------------ */
-
-  /* Custom focus outline style */
-.form-control{
-    border-radius: 2px;
+/* Form control styling */
+.form-control {
+  border-radius: 2px;
 }
+
 .form-control:focus {
-    outline: 2px solid #0074cc; /* Blue outline when focused */
-    box-shadow: none; /* Removes the default box-shadow */
-    
-  }
-  
-  /* Button styling */
+  outline: 0.1px solid #114268; /* Blue outline when focused */
+  box-shadow: none; /* Removes the default box-shadow */
+}
+
+/* Button styling */
 .send-button {
-    position: relative;
-    padding:  10px;
-    width: 200px;
-    border: none;
-    border-radius: 20px;
-    text-align: center;
-    text-decoration: none;
-    background-color: #0074cc;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: opacity 0.3s ease; /* Smooth transition on hover */
+  position: relative;
+  padding: 10px;
+  width: 200px;
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #0074cc;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.3s ease; /* Smooth transition on hover */
 }
 
 .send-button:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contactSection {
+      grid-template-columns: 1fr; /* Stack sections vertically */
+      margin: 40px 20px; /* Adjust margin for smaller screens */
+  }
 
+  .section1 {
+      grid-template-columns: 40px auto; /* Adjust column sizes for icons */
+      margin-bottom: 15px;
+  }
+
+  .con_icon {
+      font-size: 25px; /* Reduce icon size */
+  }
+
+  .send-button {
+      width: 100%; /* Full-width button for smaller screens */
+      margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactSection {
+      margin: 20px 10px; /* Smaller margins for very small screens */
+  }
+
+  .con_icon {
+      font-size: 20px; /* Further reduce icon size */
+  }
+
+  .form-control {
+      font-size: 14px; /* Adjust form input font size */
+  }
+}
 
 
 
