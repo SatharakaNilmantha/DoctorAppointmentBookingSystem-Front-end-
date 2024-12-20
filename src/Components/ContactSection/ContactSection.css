@@ -1,0 +1,111 @@
+.text-with-underline3 {
+    text-align: center;
+    position: relative;
+    font-size: 54px;
+    color: #2c4964;
+    margin-top: 60px;
+    
+  }
+
+  .text-with-underline3::after {
+    content: '';
+    display: block;
+    margin: 0px auto; /* Adjust spacing between text and underline */
+    width: 80px; /* Total width of the blue part */
+    height: 2px; /* Thickness of the underline */
+    background-color: #0074cc;
+    position: relative;
+  }
+
+/*----------------------------------------------------------------------*/
+
+.contactSection{
+    display: grid;
+    grid-template-columns: 500px auto;
+    margin: 80px 70px 0px;
+    align-items: baseline baseline;
+}
+
+.section1 {
+    display: grid;
+    grid-template-columns: 50px auto;
+    align-items: center;
+    margin-bottom: 20px;
+    
+ 
+}
+
+.con_icon{
+    background-color: #0074cc;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 100%;
+    color: aliceblue;
+    
+    
+}
+
+
+/* ------------------------------------------------------------------------------------------ */
+
+  /* Custom focus outline style */
+.form-control{
+    border-radius: 2px;
+}
+.form-control:focus {
+    outline: 2px solid #0074cc; /* Blue outline when focused */
+    box-shadow: none; /* Removes the default box-shadow */
+    
+  }
+  
+  /* Button styling */
+.send-button {
+    position: relative;
+    padding:  10px;
+    width: 200px;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #0074cc;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: opacity 0.3s ease; /* Smooth transition on hover */
+}
+
+.send-button:hover {
+    opacity: 0.8;
+}
+
+
+
+
+
+
+
+/* ------------------------- Scroll Animation --------------------------------------------------- */
+
+/* Base style for all animated divs */
+.scroll-animation {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Initially moved 50px down */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  }
+  
+  /* When the element is in the viewport, apply animation */
+  .scroll-up {
+    animation: scrollUpAnimation 0.5s forwards; /* Apply scrollUpAnimation and don't repeat */
+  }
+  
+  /* Keyframes for the scroll-up animation */
+  @keyframes scrollUpAnimation {
+    0% {
+        transform: translateY(50px); /* Start from 50px down */
+        opacity: 0; /* Start as fully transparent */
+    }
+    100% {
+        transform: translateY(0); /* Move to the original position */
+        opacity: 1; /* Become fully visible */
+    }
+  }

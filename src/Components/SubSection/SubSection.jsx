@@ -256,7 +256,6 @@ function SubSection() {
             {images.map((image, index) => (
             <div className="gallery-item  scroll-animation " key={index} onClick={() => openModal(index)}>
                 <img src={image} alt={`gallery-${index + 1}`} className="gallery-image" />
-                dhhshdh
             </div>
             ))}
         </div>

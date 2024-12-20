@@ -10,6 +10,7 @@ import ServiceSection from './Components/ServiceSection/ServiceSection';
 import DepartmentSection from './Components/DepartmentSection/DepartmentSection';
 import DoctorSection from './Components/DoctorSection/DoctorSection';
 import SubSection from './Components/SubSection/SubSection';
+import ContactSection from './Components/ContactSection/ContactSection';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
          <div><DepartmentSection/></div>
          <div><DoctorSection/></div>
          <div><SubSection/></div>
+         <div><ContactSection/></div>
      </BodyContent>
     </div>
   );
