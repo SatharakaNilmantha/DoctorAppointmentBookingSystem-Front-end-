@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './DoctorSection.css'
+import { Link } from 'react-router-dom';
 
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
@@ -129,7 +130,7 @@ function DoctorSection() {
                       <span className='iconsvg'><BsFacebook /></span>
                       <span className='iconsvg'><BsInstagram /></span>
                       <span className='iconsvg'><FaLinkedin /></span>
-                      <span><a href="#makeanAppoinment" className="book-button1 ">Appointment</a></span>
+                      <span><Link to="/appointment" className="book-button1">Appointment</Link></span>
                     </div>
                     </Card.Body>
                 </Card>
@@ -157,7 +158,7 @@ function DoctorSection() {
                       <span className='iconsvg'><BsFacebook /></span>
                       <span className='iconsvg'><BsInstagram /></span>
                       <span className='iconsvg'><FaLinkedin /></span>
-                      <span><a href="#makeanAppoinment" className="book-button1 ">Appointment</a></span>
+                      <span><Link to="/appointment" className="book-button1">Appointment</Link></span>
                     </div>
                     </Card.Body>
                     </Card>

@@ -14,6 +14,10 @@ import Department from './pages/DepartmentPage/DepartmentPage.jsx'
 import Doctors from './pages/DoctorsPage/DoctorsPage.jsx';
 import Contact from './pages/ContactPage/contactPage.jsx';
 
+
+
+import Appointment from './pages/Appointmentpage/AppointmentPage.jsx';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +45,14 @@ const router = createBrowserRouter([
     element: <Contact/>,
   },
 
+
+
+  {
+    path: "/appointment",
+    element: <Appointment/>,
+  },
+   
+   
 
 ]);
 

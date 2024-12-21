@@ -1,0 +1,178 @@
+/* AppointmentPage.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Prevents scrolling */
+}
+
+.appointment-container {
+    width: 100%;
+    max-width: 560px; /* Set a fixed max width */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    box-sizing: border-box; /* Include padding in width calculations */
+    overflow: hidden; /* Prevent content from overflowing */
+}
+
+.header h1 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.doctor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.doctor-image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 8px;
+}
+
+.doctor-details h2 {
+    font-size: 1rem;
+    color: #222;
+    margin: 5px 0;
+}
+
+.verified-badge {
+    color: green;
+    font-size: 0.9rem;
+    margin-left: 3px;
+}
+
+.specialization {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.about {
+    font-size: 0.8rem;
+    color: #555;
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+.fee {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.booking-section h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.booking-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.date-selector {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allows wrapping */
+    margin: 20px;
+}
+
+.date {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.8rem;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s, color 0.3s;
+    width: 45px; /* Ensure consistent size */
+    box-sizing: border-box;
+}
+
+.date.selected {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #0056b3;
+}
+
+.time-selector {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allows wrapping */
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.time {
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s, color 0.3s;
+    box-sizing: border-box;
+}
+
+.time.selected {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #0056b3;
+}
+
+.book-button {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Make the button stretch */
+}
+
+.book-button:hover {
+    background-color: #218838;
+}
+
+.confirmation-message {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 400px) {
+    .appointment-container {
+        max-width: 90%; /* Adjust width for small screens */
+    }
+
+    .date-selector, .time-selector {
+        gap: 4px;
+    }
+
+    .date, .time {
+        font-size: 0.7rem;
+        padding: 6px;
+    }
+}
