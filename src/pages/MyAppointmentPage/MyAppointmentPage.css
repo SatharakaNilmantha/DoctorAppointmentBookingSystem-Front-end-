@@ -1,0 +1,170 @@
+/* Main container for body content */
+.body-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 100px;
+  }
+  
+  .text-with-underline1 {
+    text-align: center;
+    position: relative;
+    font-size: 54px;
+    color: #2c4964;
+    margin-bottom: 10px;
+  }
+  
+  .text-with-underline1::after {
+    content: '';
+    display: block;
+    margin: 0 auto; /* Adjust spacing between text and underline */
+    width: 80px; /* Total width of the blue part */
+    height: 2px; /* Thickness of the underline */
+    background-color: #0074cc;
+    position: relative;
+  }
+  
+  /* Appointment card styling */
+  .appointment-card {
+    border-radius: 8px;
+    box-shadow: 0.1px 1px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 85%; /* Controls the maximum width of the card */
+    display: flex; /* Ensures items align side by side */
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .appointment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Doctor image styling */
+  .doctor-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .appointment-details {
+    flex: 1; /* Take up remaining space */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px; /* Add spacing between rows */
+  }
+  
+  .appointment-details .row {
+    display: block; /* Ensure each row is a block element */
+  }
+  
+  .appointment-details .row h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #2c3e50;
+  }
+  
+  .appointment-details .row p {
+    margin: 5px 0;
+    line-height: 1.6;
+    font-size: 0.95em;
+  }
+  
+  .appointment-details .row p strong {
+    color: #2c3e50;
+  }
+  
+  /* Button styling */
+  .pay-online,.cancel-appointment {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .pay-online {
+    background-color: #3498db;
+    color: #fff;
+  }
+  
+  .pay-online:hover {
+    background-color: #2980b9;
+  }
+  
+  .cancel-appointment {
+    background-color: #e74c3c;
+    color: #fff;
+  }
+  
+  .cancel-appointment:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Media Queries for responsiveness */
+  @media (max-width: 1200px) {
+    .appointment-card {
+      max-width: 90%; /* Increase width on smaller screens */
+    }
+  
+    .doctor-image {
+      width: 80px;
+      height: 80px;
+    }
+  
+    .appointment-details .row h2 {
+      font-size: 1.3em; /* Smaller font size for headers */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .appointment-card {
+      max-width: 100%; /* Make the card full-width */
+      flex-direction: column; /* Stack elements vertically */
+      gap: 15px; /* Adjust gap between elements */
+    }
+  
+    .doctor-image {
+      width: 70px;
+      height: 70px;
+    }
+  
+    .appointment-details .row h2 {
+      font-size: 1.2em;
+    }
+  
+    .appointment-details .row p {
+      font-size: 0.9em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    body {
+      padding: 10px; /* Reduce padding on very small screens */
+    }
+  
+    .appointment-card {
+      max-width: 100%;
+      padding: 15px;
+    }
+  
+    .doctor-image {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .appointment-details .row h2 {
+      font-size: 1.1em;
+    }
+  
+    button {
+      font-size: 0.8em;
+    }
+  }
+  

@@ -38,6 +38,7 @@
 
 .custom-dropdown-item {
   color: #007bff; /* Text color for items */
+  text-decoration: none;
 }
 
 .custom-dropdown-item:hover {

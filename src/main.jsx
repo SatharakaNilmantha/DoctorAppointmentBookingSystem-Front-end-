@@ -19,6 +19,7 @@ import Contact from './pages/ContactPage/contactPage.jsx';
 import Appointment from './pages/Appointmentpage/AppointmentPage.jsx';
 import LoginPage from './pages/LoginPage/LoginPage.jsx';
 import RegisterPage from './pages/RegisterPage/RegisterPage.jsx';
+import MyAppointmentPage from './pages/MyAppointmentPage/MyAppointmentPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -62,9 +63,12 @@ const router = createBrowserRouter([
     path: "/register",
     element: <RegisterPage/>,
   },
+   
+  {
+    path: "/myAppointment",
+    element: <MyAppointmentPage/>,
+  },
   
-   
-   
 
 ]);
 
