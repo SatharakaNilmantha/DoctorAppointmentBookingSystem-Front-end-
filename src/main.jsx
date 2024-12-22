@@ -17,6 +17,8 @@ import Contact from './pages/ContactPage/contactPage.jsx';
 
 
 import Appointment from './pages/Appointmentpage/AppointmentPage.jsx';
+import LoginPage from './pages/LoginPage/LoginPage.jsx';
+import RegisterPage from './pages/RegisterPage/RegisterPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -51,6 +53,16 @@ const router = createBrowserRouter([
     path: "/appointment",
     element: <Appointment/>,
   },
+  {
+    path: "/login",
+    element: <LoginPage/>,
+  },
+  
+  {
+    path: "/register",
+    element: <RegisterPage/>,
+  },
+  
    
    
 

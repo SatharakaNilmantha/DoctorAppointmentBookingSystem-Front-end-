@@ -4,7 +4,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 /* Button styling */
-  .Navbar .book-button {
+  .Navbar .login-button {
     position: relative;
     padding:  10px;
     width: 200px;
@@ -13,15 +13,43 @@
     text-align: center;
     text-decoration: none;
     background-color: #0074cc;
-    color: white;
+    color: white ;
     font-size: 16px;
     cursor: pointer;
     transition: opacity 0.3s ease; /* Smooth transition on hover */
 }
 
-.Navbar .book-button:hover {
+.Navbar .login-button:hover {
     opacity: 0.8;
 }
+
+
+/* Custom styles for the DropdownButton */
+.custom-dropdown {
+  background-color: #0074cc; /* Change background color */
+  color: white; /* Text color */
+  border-radius: 20px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.3s ease; /* Smooth transition on hover */
+  
+}
+
+.custom-dropdown-item {
+  color: #007bff; /* Text color for items */
+}
+
+.custom-dropdown-item:hover {
+  background-color: #dee2fb9a; /* Light background on hover */
+  color: #0056b3; /* Change text color on hover */
+}
+
+.custom-dropdown-item:active {
+  background-color: #e9ecef; /* Active item background */
+}
+
+
 
 /* To ensure the button is aligned properly with other links */
 .Navbar .ms-auto > .nav-link {

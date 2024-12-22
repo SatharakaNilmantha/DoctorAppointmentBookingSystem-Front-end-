@@ -1,16 +1,37 @@
-import React from 'react'
-import './NavigationComponent.css'
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import './NavigationComponent.css';
 
 import MenuLink from '../MenuLink/MenuLink';
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
-import logo from "../../images/logo/logo.png"
+import logo from "../../images/logo/logo.png";
+
+import { IoLogOutOutline } from "react-icons/io5";
 
 
 function NavigationComponent() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);  // State to track login status
+  const navigate = useNavigate();   // Hook to navigate between pages
+
+  // Checking the login status when the component mounts
+  useEffect(() => {
+    const loggedIn = localStorage.getItem('isLoggedIn') === 'true';   // Check login status from localStorage
+    setIsLoggedIn(loggedIn);   // Update state based on the login status
+  }, []);
+
+  // Handle logout action
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn');   // Remove login status from localStorage
+    setIsLoggedIn(false);   // Update state to logged-out
+    navigate('/');   // Redirect to home page after logout
+  };
+
   return (
     <Navbar bg="light" expand="lg" data-bs-theme="light" className="Navbar">
-    <Container>
+      <Container>
         <Navbar.Brand href="#home" className="img"><img src={logo} alt="website logo" /></Navbar.Brand>
         
         {/* This will display the hamburger icon on smaller screens */}
@@ -18,20 +39,32 @@ function NavigationComponent() {
         
         {/* Collapsible section for nav links */}
         <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="ms-auto d-flex align-items-center gap-4"> {/* Added d-flex, align-items-center, and gap */}
-           <MenuLink linkName="Home" url="/" />
-           <MenuLink linkName="About" url="/about" />
-           <MenuLink linkName="Service" url="/service" />
-           <MenuLink linkName="Department" url="/department" />
-           <MenuLink linkName="Doctors" url="/doctors" />
-           <MenuLink linkName="Contact" url="/contact" />
-           <a href="#createAcount" className="book-button">Create Account</a>
-        </Nav>
-        </Navbar.Collapse>
-    </Container>
-    </Navbar>
+          <Nav className="ms-auto d-flex align-items-center gap-4"> {/* Added d-flex, align-items-center, and gap */}
+            <MenuLink linkName="Home" url="/" />
+            <MenuLink linkName="About" url="/about" />
+            <MenuLink linkName="Service" url="/service" />
+            <MenuLink linkName="Department" url="/department" />
+            <MenuLink linkName="Doctors" url="/doctors" />
+            <MenuLink linkName="Contact" url="/contact" />
+            
+            {/* Display Log Out button and dropdown if the user is logged in */}
+            {isLoggedIn ? (
+              <>
+                <DropdownButton title="My Profile" className="custom-dropdown">
+                  <Dropdown.Item href="#/action-1" className="custom-dropdown-item">My profile</Dropdown.Item>
+                  <Dropdown.Item href="#/action-2" className="custom-dropdown-item">My Appointments</Dropdown.Item>
+                  <Dropdown.Item onClick={handleLogout} className="custom-dropdown-item" style={{color:'red'}}>Log Out <span style={{fontSize:'20px'}}><IoLogOutOutline /></span></Dropdown.Item>
+                </DropdownButton>
+              </>
 
-  )
+            ) : (
+              <Link to="/login" className="login-button">Create Account</Link>
+            )}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }
 
-export default NavigationComponent
+export default NavigationComponent;
