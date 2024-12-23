@@ -12,9 +12,9 @@ function MyAppointmentPage() {
       <HeaderContent />
       <BodyContent>
         <div className="body-content ">
-          <h1 className="text-with-underline1 ">Doctors</h1> 
+          <h1 className="text-with-underline1 scroll-animation">My Appointments</h1> 
 
-          <div className="appointment-card">
+          <div className="appointment-card scroll-animation">
               <img src={doctor1} alt="Doctor" className="doctor-image" />
 
               <div className="appointment-details">
@@ -42,7 +42,7 @@ function MyAppointmentPage() {
               </div>
           </div>
 
-          <div className="appointment-card">
+          <div className="appointment-card scroll-animation">
               <img src={doctor1} alt="Doctor" className="doctor-image" />
 
               <div className="appointment-details">
@@ -70,7 +70,7 @@ function MyAppointmentPage() {
               </div>
           </div>
 
-          <div className="appointment-card">
+          <div className="appointment-card scroll-animation">
               <img src={doctor1} alt="Doctor" className="doctor-image" />
 
               <div className="appointment-details">
@@ -98,7 +98,7 @@ function MyAppointmentPage() {
               </div>
           </div>
 
-          <div className="appointment-card">
+          <div className="appointment-card scroll-animation">
               <img src={doctor1} alt="Doctor" className="doctor-image" />
 
               <div className="appointment-details">

@@ -61,25 +61,25 @@ useEffect(() => {
         <div className='aboutpart4 scroll-animation duration-3'>
           <p><img src={AboutImg1} alt="" /></p>
           <h4 style={{ color: '#2c4964', fontWeight: '800' }}>Healthcare for Kids</h4>
-          <p style={{ color: '#444444' }}>Voluptate aperiam esse possimus maxime repellendus.</p>
+          <p style={{ color: '#444444',lineHeight: '30px' }}>Voluptate aperiam esse possimus maxime repellendus te aperiam esse possimus.</p>
         </div>
 
         <div className='aboutpart4 scroll-animation duration-1'>
           <p><img src={AboutImg2} alt="" /></p>
           <h4 style={{ color: '#2c4964', fontWeight: '800' }}>Medical Counseling</h4>
-          <p style={{ color: '#444444' }}>Voluptate aperiam esse possimus maxime repellendus.</p>
+          <p style={{ color: '#444444', lineHeight: '30px'  }}>Voluptate aperiam esse possimus maxime repellendus te aperiam esse possimus.</p>
         </div>
 
         <div className='aboutpart4 scroll-animation duration-1'>
           <p><img src={AboutImg3} alt="" /></p>
           <h4 style={{ color: '#2c4964', fontWeight: '800' }}>Modern Equipment</h4>
-          <p style={{ color: '#444444' }}>Voluptate aperiam esse possimus maxime repellendus.</p>
+          <p style={{ color: '#444444',lineHeight: '30px' }}>Voluptate aperiam esse possimus maxime repellendus te aperiam esse possimus.</p>
         </div>
 
         <div className='aboutpart4 scroll-animation duration-3'>
           <p><img src={AboutImg4} alt="" /></p>
           <h4 style={{ color: '#2c4964', fontWeight: '800' }}>Qualified Doctors</h4>
-          <p style={{ color: '#444444' }}>Voluptate aperiam esse possimus maxime repellendus.</p>
+          <p style={{ color: '#444444' ,lineHeight: '30px'}}>Voluptate aperiam esse possimus maxime repellendus te aperiam esse possimus.</p>
         </div>
           </div>
 

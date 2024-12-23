@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import './MenuLink.css';
 
 function MenuLink(props) {
+  
   function handleClick() {
     window.scrollTo({
       top: 0, // Scroll to the top
@@ -11,7 +12,7 @@ function MenuLink(props) {
 
   return (
     <div className="menu menu-2">
-      <NavLink to={props.url} className={({ isActive }) => (isActive ? "active" : "")}  onClick={handleClick}> {props.linkName}</NavLink>
+      <NavLink to={props.url}  onClick={handleClick}> {props.linkName}</NavLink>
     </div>
   );
 }

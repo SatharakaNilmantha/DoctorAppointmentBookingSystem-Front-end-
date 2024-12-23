@@ -31,6 +31,13 @@ function NavigationComponent() {
     navigate('/');   // Redirect to home page after logout
   };
 
+
+  function handleClick() {
+    window.scrollTo({
+      top: 0, // Scroll to the top
+    });
+  }
+
   return (
     <Navbar bg="light" expand="lg" data-bs-theme="light" className="Navbar">
       <Container>
@@ -52,10 +59,10 @@ function NavigationComponent() {
             {/* Display Log Out button and dropdown if the user is logged in */}
             {isLoggedIn ? (
               <>
-                <DropdownButton title="My Profile" className="custom-dropdown">
-                  <Dropdown.Item as="div" className="custom-dropdown-item"><Link to="/myAppointment" style={{ textDecoration: 'none' }}>My profile</Link></Dropdown.Item>
-                  <Dropdown.Item as="div" className="custom-dropdown-item"><Link to="/myAppointment" style={{ textDecoration: 'none' }}>My Appointments</Link></Dropdown.Item>
-                  <Dropdown.Item as="div" onClick={handleLogout} className="custom-dropdown-item" style={{ color: 'red' }}>Log Out <span style={{ fontSize: '20px' }}><IoLogOutOutline /></span></Dropdown.Item>
+                <DropdownButton title="My Profile" className="custom-dropdown" >
+                  <Dropdown.Item as="div" className="custom-dropdown-item"><Link to="/myProfile" style={{ textDecoration: 'none' }} onClick={handleClick}>My profile</Link></Dropdown.Item>
+                  <Dropdown.Item as="div" className="custom-dropdown-item"><Link to="/myAppointment" style={{ textDecoration: 'none' }} onClick={handleClick}>My Appointments</Link></Dropdown.Item>
+                  <Dropdown.Item as="div" onClick={handleLogout} className="custom-dropdown-item" style={{ color: 'red' }} >Log Out <span style={{ fontSize: '20px' }}><IoLogOutOutline /></span></Dropdown.Item>
                 </DropdownButton>
               </>
             ) : (

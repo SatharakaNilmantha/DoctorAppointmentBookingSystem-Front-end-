@@ -20,6 +20,7 @@ import Appointment from './pages/Appointmentpage/AppointmentPage.jsx';
 import LoginPage from './pages/LoginPage/LoginPage.jsx';
 import RegisterPage from './pages/RegisterPage/RegisterPage.jsx';
 import MyAppointmentPage from './pages/MyAppointmentPage/MyAppointmentPage.jsx';
+import MyProfilePage from './pages/MyProfilePage/MyProfilePage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
   {
     path: "/myAppointment",
     element: <MyAppointmentPage/>,
+  },
+  {
+    path: "/myprofile",
+    element: <MyProfilePage/>,
   },
   
 
