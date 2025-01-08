@@ -4,6 +4,7 @@ import './RegisterPage.css';
 
 function RegisterPage() {
     const navigate = useNavigate(); // Initialize the navigate function
+    
     const [photo, setPhoto] = useState(null); // State to handle photo upload
 
     const handlePhotoUpload = (e) => {
