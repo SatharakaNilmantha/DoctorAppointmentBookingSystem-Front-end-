@@ -30,35 +30,35 @@ function DoctorSection() {
 
     const Doctors = [
         {
-          eventKey: "Dental",
+          department: "Dental",
           Name: "Walter White",
           title: "Chief Medical Officer",
           description: "Qui laudantium consequatur laborum sit qui ad sapiente dila parde ",
           imgSrc:doctor1
         },
         {
-          eventKey: "Cardialogy",
+          department: "Cardialogy",
           Name:"Sarah Jhonson",
           title: "Cardialogy",
           description: "Eos voluptatibus quo. Odio similique illum id quidem non enim fuga. ",
           imgSrc: doctor2
         },
         {
-          eventKey: "Neurology",
+          department: "Neurology",
           Name:"William Anderson",
           title :"Neurology" ,
           description: "Eos voluptatibus quo. Odio similique illum id quidem non enim fuga. Qui natus non sunt.",
           imgSrc: doctor3
         },
         {
-          eventKey: "Pediatrics",
+          department: "Pediatrics",
           Name:"Amanda Jepson",
           title: "Pediatrics",
           description: "Description for Pediatrics goes here  Odio similique illum id quidem non enim fuga",
           imgSrc: doctor4
         },
         {
-          eventKey:  "Neurology" ,  
+          department:  "Neurology" ,  
           Name:"HarissonThomasn",
           title: "Neurology" ,
           description: "Description for Eye Care goes here  Odio similique illum id quidem non enim fuga",
@@ -66,14 +66,19 @@ function DoctorSection() {
         },
 
         {
-            eventKey:  "Pediatrics",  
+            department:  "Pediatrics",  
             Name:"HarissonThomas",
             title:  "Pediatrics",
             description: "Description for Eye Care goes here  Odio similique illum id quidem non enim fuga",
             imgSrc: doctor6
-          },
+        },
+
 
         ];
+
+
+        const uniqueDepartments = Array.from(new Set(Doctors.map(doctor => doctor.department)));  //get the department to the array
+
 
 
      //----------------------------------scroll direction code ------------------------------------//
@@ -140,19 +145,18 @@ function DoctorSection() {
             </Row>
         </Tab>
 
-        {["Dental", "Cardialogy", "Neurology", "Pediatrics"].map((department) => (
-        <Tab key={department} eventKey={department} title={department}>
-            <Row xs={1} md={2} className="cards">
-                {Doctors.filter((doctor) => doctor.eventKey === department).map((doctor) => (
-                <Col key={doctor.Name}>
-                    <Card className="card1">
-                    <Card.Img src={doctor.imgSrc} className="image" />
-                    <Card.Body style={{ textAlign: "left" }}>
-                    <h4 style={{ margin: "0px",padding:"0px" ,fontWeight: 800 ,color: "#2c4964" }}>{doctor.Name}</h4>
-                    <p style={{ margin: "0px" ,padding:"0px",color: "#444444",fontWeight: 600  }}>{doctor.title}</p>
-                    <hr style={{ width:"50px"}} /> 
-                    <p style={{color: "#444444" }}>{doctor.description}</p>
-
+        {uniqueDepartments.map((Department) => (
+        <Tab key={Department} eventKey={Department} title={Department}>
+          <Row xs={1} md={2} className="cards">
+            {Doctors.filter((doctor) => doctor.department === Department).map((doctor) => (
+              <Col key={doctor.Name}>
+                <Card className="card1">
+                  <Card.Img src={doctor.imgSrc} className="image" />
+                  <Card.Body style={{ textAlign: "left" }}>
+                    <h4 style={{ margin: "0px", padding: "0px", fontWeight: 800, color: "#2c4964" }}>{doctor.Name}</h4>
+                    <p style={{ margin: "0px", padding: "0px", color: "#444444", fontWeight: 600 }}>{doctor.title}</p>
+                    <hr style={{ width: "50px" }} />
+                    <p style={{ color: "#444444" }}>{doctor.description}</p>
                     <div className='iconpart'>
                       <span className='iconsvg'><BsTwitterX /></span>
                       <span className='iconsvg'><BsFacebook /></span>
@@ -160,14 +164,14 @@ function DoctorSection() {
                       <span className='iconsvg'><FaLinkedin /></span>
                       <span><Link to="/appointment" className="book-button1">Appointment</Link></span>
                     </div>
-                    </Card.Body>
-                    </Card>
-                    <br />
-                </Col>
-                ))}
-            </Row>
+                  </Card.Body>
+                </Card>
+                <br />
+              </Col>
+            ))}
+          </Row>
         </Tab>
-        ))}
+         ))}
 
      </Tabs>
 
