@@ -66,7 +66,7 @@ function DoctorSection() {
         },
 
         {
-            department:  "Pediatrics",  
+            department:  "Ped",  
             Name:"HarissonThomas",
             title:  "Pediatrics",
             description: "Description for Eye Care goes here  Odio similique illum id quidem non enim fuga",
