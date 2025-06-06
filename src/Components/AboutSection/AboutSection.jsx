@@ -7,6 +7,7 @@ import { ImLab } from "react-icons/im";
 
 
 
+
 import Row from 'react-bootstrap/Row';
 import AboutImg from '../../images/about/about.jpg'
 import './AboutSection.css'
@@ -144,7 +145,7 @@ return (
                       <p style={{textAlign:'justify',color:'#444444'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure odio atque deserunt eos  </p>
                     </div>
                   </Row>
-                  <Row className='aboutpart2 b'>
+                  <Row className='aboutpart2 b '>
                     <div className='icon2'><FaHeartCirclePlus /></div>
                     <div>  
                       <h3 style={{color:'#2c4964', fontWeight:'800'}}>Precision Testing for Accurate Diagnosis</h3>
