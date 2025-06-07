@@ -1,8 +1,7 @@
 
 .profile-page {
     max-width: 800px;
-    margin: 150px auto 30px auto;
-    padding: 20px;
+    margin: 190px auto 0px auto !important;
 }
 
 .profile-header-card,.profile-details-card {
@@ -70,6 +69,21 @@
     border-bottom: 1px solid #ddd;
 }
 
+.profilerow1{
+    display: grid;
+    grid-template-rows: auto auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.profilerow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+  
+}
+
+
 .field-label {
     flex: 1;
     font-weight: bold;
@@ -87,6 +101,12 @@
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 14px;
+}
+
+.field-message{
+    font-size: 13px;
+    margin: 0px !important;
+    text-align: end;
 }
 
 .action-links {
@@ -114,6 +134,11 @@ text-align: end;
 .save-link {
     background-color: #28a745;
     color: white;
+}
+
+.update-links {
+ margin-top: 20px;
+ text-align: end;
 }
 
 .save-link:hover {

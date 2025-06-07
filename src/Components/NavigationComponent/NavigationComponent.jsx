@@ -9,7 +9,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import logo from "../../images/logo/logo.png";
 import { IoLogOutOutline } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
-import userImage from "../../images/testimonials/patient.jpg"; // Fallback image
+
 import axios from 'axios';
 
 function NavigationComponent() {
@@ -58,7 +58,7 @@ function NavigationComponent() {
         .catch(() => {
           setUserData(prev => ({
             ...prev,
-            image: userImage
+            image: null
           }));
         });
     }
