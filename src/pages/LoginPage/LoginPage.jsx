@@ -39,12 +39,12 @@ function LoginPage() {
                 // Delay navigation to allow message to show
                 setTimeout(() => navigate('/'), 1500);
             } else {
-                setPopup({ type: 'error', message: data.message || 'Login failed.' });
+                setPopup({ type: 'error', message: data.message  });
             }
 
         } catch (err) {
-            const errorMsg = err.response?.data?.message || err.response?.data || 'Something went wrong.';
-            setPopup({ type: 'error', message: errorMsg });
+            
+            setPopup({ type: 'warning', message: "Please check your internet connection."});
         }
     };
 
