@@ -9,41 +9,65 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import logo from "../../images/logo/logo.png";
 import { IoLogOutOutline } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
-
-
-import userImage from "../../images/testimonials/patient.jpg"; // Placeholder for user image
+import userImage from "../../images/testimonials/patient.jpg"; // Fallback image
+import axios from 'axios';
 
 function NavigationComponent() {
-
-
-  // State to check if the user is logged in
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // State to hold user data
   const [userData, setUserData] = useState({
     name: '',
     image: null
   });
 
-
   const navigate = useNavigate();
 
   useEffect(() => {
     const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const patientId = localStorage.getItem('patientId');
+
     setIsLoggedIn(loggedIn);
-    
-    if (loggedIn) {
-      const storedUser = JSON.parse(localStorage.getItem('userData') || '{}');
-      setUserData({
-        name: storedUser.name || 'John Doe', // Default name if none provided
-        image: storedUser.image || userImage // Use default image if none provided
-      });
+
+    if (loggedIn && patientId) {
+      // Get patient's name
+      axios.get(`http://localhost:8080/api/patient/${patientId}`)
+        .then(response => {
+          const patient = response.data;
+          setUserData(prev => ({
+            ...prev,
+            name: patient.fullName || 'Patient'
+          }));
+        })
+        .catch(() => {
+          setUserData(prev => ({
+            ...prev,
+            name: 'Patient'
+          }));
+        });
+
+      // Get patient image separately
+      axios.get(`http://localhost:8080/api/patient/image/${patientId}`, {
+        responseType: 'blob'
+      })
+        .then(response => {
+          const imageUrl = URL.createObjectURL(response.data);
+          setUserData(prev => ({
+            ...prev,
+            image: imageUrl
+          }));
+        })
+        .catch(() => {
+          setUserData(prev => ({
+            ...prev,
+            image: userImage
+          }));
+        });
     }
   }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('userData');
+    localStorage.removeItem('patientId');
     setIsLoggedIn(false);
     setUserData({ name: '', image: null });
     navigate('/');
@@ -59,9 +83,9 @@ function NavigationComponent() {
         <Navbar.Brand href="#home" className="img">
           <img src={logo} alt="website logo" />
         </Navbar.Brand>
-        
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        
+
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto d-flex align-items-center gap-4">
             <MenuLink linkName="Home" url="/" />
@@ -70,13 +94,14 @@ function NavigationComponent() {
             <MenuLink linkName="Department" url="/department" />
             <MenuLink linkName="Doctors" url="/doctors" />
             <MenuLink linkName="Contact" url="/contact" />
-            
+
             {isLoggedIn ? (
-              <DropdownButton align="end"
+              <DropdownButton
+                align="end"
                 title={
                   <div className="d-flex align-items-center gap-2">
                     {userData.image ? (
-                      <Image  src={userData.image}  roundedCircle  width="42" height="42" className="user-avatar" />
+                      <Image src={userData.image} roundedCircle width="42" height="42" className="user-avatar" />
                     ) : (
                       <FaUserCircle size={28} className="text-primary" />
                     )}
@@ -86,10 +111,12 @@ function NavigationComponent() {
                 id="user-dropdown"
                 className="user-dropdown"
               >
-                <Dropdown.Item as={Link} to="/myProfile" onClick={handleClick}> My Profile </Dropdown.Item>
+                <Dropdown.Item as={Link} to="/myProfile" onClick={handleClick}>My Profile</Dropdown.Item>
                 <Dropdown.Item as={Link} to="/myAppointment" onClick={handleClick}>My Appointments</Dropdown.Item>
                 <Dropdown.Divider />
-                <Dropdown.Item onClick={handleLogout} className="text-danger"> <IoLogOutOutline className="me-2" /> Logout</Dropdown.Item>
+                <Dropdown.Item onClick={handleLogout} className="text-danger">
+                  <IoLogOutOutline className="me-2" /> Logout
+                </Dropdown.Item>
               </DropdownButton>
             ) : (
               <Link to="/login" className="login-button">Create Account</Link>
