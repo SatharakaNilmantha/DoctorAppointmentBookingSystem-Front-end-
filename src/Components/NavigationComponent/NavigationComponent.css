@@ -28,9 +28,12 @@
   background: transparent !important;
   border: none !important;
   color: inherit !important;
+  font-size: 16px;
+  font-weight: 600;
   padding: 0.5rem 1rem;
   display: flex;
   align-items: center;
+  text-align: right;
   gap: 0.5rem;
 }
 
@@ -40,7 +43,7 @@
 
 .user-avatar {
   object-fit: cover;
-  border: 2px solid #0074cc;
+  border: 1px solid #0074cc;
 }
 
 .user-dropdown .dropdown-menu {
@@ -55,6 +58,7 @@
   padding: 0.5rem 1rem;
   border-radius: 5px;
   margin: 0.25rem 0;
+  color: #2c4964;
   transition: all 0.2s;
 }
 
