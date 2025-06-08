@@ -1,75 +1,89 @@
-/* AppointmentPage.css */
+/* Base Styles */
 .body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #e9e9e9;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden; /* Prevents scrolling */
+    overflow: hidden;
 }
 
 .appointment-container {
     width: 100%;
-    max-width: 560px; /* Set a fixed max width */
-    background-color: #fff;
+    max-width: 580px;
+    background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
-    box-sizing: border-box; /* Include padding in width calculations */
-    overflow: hidden; /* Prevent content from overflowing */
+    box-sizing: border-box;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header */
 .header h1 {
     font-size: 1.7rem;
     color: #333;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-.doctor-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin-bottom: 30px;
     text-align: center;
 }
 
+/* Doctor Card */
+.doctor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    margin: 2px;
+    text-align: center;
+}
+
 .doctor-image img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+    width: 130px;
+    height: auto;
     object-fit: cover;
-    margin-bottom: 8px;
+    border-radius: 50%;
+    margin-bottom: 0px !important;
 }
 
 .doctor-details h2 {
-    font-size: 1rem;
+    font-size: 24px;
     color: #222;
-    margin: 5px 0;
+   
 }
 
 .verified-badge {
     color: green;
-    font-size: 0.9rem;
+    font-size: 20px;
     margin-left: 3px;
 }
 
 .specialization {
     font-size: 0.85rem;
     color: #666;
-    margin-bottom: 5px;
 }
 
 .about {
     font-size: 0.8rem;
     color: #555;
     margin-bottom: 5px;
-    line-height: 1.3;
-    margin-top: 20px;
+    line-height: 1.4;
+    margin: 10px auto 0px auto !important;
 }
 
 .fee {
@@ -78,6 +92,15 @@
     color: #333;
 }
 
+
+/* Booking Section */
+.booking-section {
+    margin-top: 0px !important;
+    padding: 15px 5px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 .booking-section h3 {
     font-size: 1rem;
     margin-bottom: 8px;
@@ -91,10 +114,11 @@
     gap: 10px;
 }
 
+/* Date Selector */
 .date-selector {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap; /* Allows wrapping */
+    flex-wrap: wrap;
     margin: 10px;
 }
 
@@ -107,7 +131,7 @@
     font-size: 0.8rem;
     background-color: #f9f9f9;
     transition: background-color 0.3s, color 0.3s;
-    width: 45px; /* Ensure consistent size */
+    width: 45px;
     box-sizing: border-box;
 }
 
@@ -117,10 +141,11 @@
     border-color: #0056b3;
 }
 
+/* Time Selector */
 .time-selector {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Allows wrapping */
+    flex-wrap: wrap;
     gap: 5px;
     margin-bottom: 10px;
 }
@@ -142,6 +167,21 @@
     border-color: #0056b3;
 }
 
+.time.booked {
+    background-color: #ff3030; /* Red */
+    color: white;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.time.patient-booked {
+    background-color: orange; /* Orange */
+    color: white;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* Booking Button */
 .booking-button {
     padding: 8px 15px;
     font-size: 0.9rem;
@@ -151,13 +191,14 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    width: 100%; /* Make the button stretch */
+    width: 100%;
 }
 
 .booking-button:hover {
     background-color: #218838;
 }
 
+/* Confirmation Message */
 .confirmation-message {
     margin-top: 5px;
     font-size: 0.85rem;
@@ -165,9 +206,9 @@
     text-align: center;
 }
 
-/* Style for the back button */
+/* Back Button */
 .back-button {
-    margin:10px 10px 5px;
+    margin: 10px 10px 0px;
     color: black;
     border: none;
     font-size: 16px;
@@ -179,18 +220,65 @@
     color: #007bff;
 }
 
+
+.status-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 10px;
+  font-weight: 500;
+  justify-content: center;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-available {
+  background-color: #fbfbfb; /* Green */
+  border: 1px solid #000000;
+}
+
+.status-unavailable {
+  background-color: #dc3545; /* Red */
+}
+
+.status-selected {
+  background-color: #007bff; /* Blue */
+}
+
+.status-your-booking {
+  background-color: #fd7e14; /* Orange */
+}
+
+
 /* Responsive Design */
 @media (max-width: 400px) {
     .appointment-container {
-        max-width: 90%; /* Adjust width for small screens */
+        max-width: 90%;
     }
 
     .date-selector, .time-selector {
         gap: 4px;
     }
 
-    .date, .time {
+    .date {
+        width: 40px;
         font-size: 0.7rem;
         padding: 6px;
+    }
+
+    .time {
+        font-size: 0.7rem;
+        padding: 5px 8px;
     }
 }
