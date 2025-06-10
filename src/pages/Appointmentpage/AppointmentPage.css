@@ -73,8 +73,15 @@
     margin-left: 3px;
 }
 
+.verified-badge1 {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    margin-left: 3px;
+}
+
+
 .specialization {
-    font-size: 0.85rem;
+    font-size: 15px;
     color: #666;
 }
 

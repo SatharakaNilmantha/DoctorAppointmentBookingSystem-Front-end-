@@ -52,7 +52,7 @@ const router = createBrowserRouter([
 
 
   {
-    path: "/appointment",
+    path: "/appointment/:id",
     element: <Appointment/>,
   },
   {
