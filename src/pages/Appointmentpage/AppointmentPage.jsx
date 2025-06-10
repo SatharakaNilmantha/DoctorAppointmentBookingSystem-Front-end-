@@ -12,12 +12,15 @@ function AppointmentPage() {
     const parsedDoctorId = parseInt(doctorId);
     const [doctorDetails, setDoctorDetails] = useState(null);
 
+
+    // Fetch doctor details using the doctorId from URL params
     useEffect(() => {
         axios.get(`http://localhost:8080/api/doctors/${parsedDoctorId}`)
             .then((res) => setDoctorDetails(res.data))
             .catch((err) => console.error("Error fetching doctor details", err));
     }, [parsedDoctorId]);
 
+    // Generate next 7 dates starting from tomorro
     const generateDates = () => {
         const dates = [];
         for (let i = 1; i <= 7; i++) {
@@ -28,6 +31,7 @@ function AppointmentPage() {
         return dates;
     };
 
+    // Generate time slots for a given day of the week based on doctor's schedule
     const generateTimeSlotsForDay = (dayOfWeek) => {
         if (!doctorDetails) return [];
 
@@ -59,6 +63,7 @@ function AppointmentPage() {
         return times;
     };
 
+
     const dates = generateDates();
     const [selectedDate, setSelectedDate] = useState(dates[0]);
     const [selectedTime, setSelectedTime] = useState(null);
@@ -66,29 +71,36 @@ function AppointmentPage() {
     const [bookedAppointments, setBookedAppointments] = useState([]);
     const [patientAppointments, setPatientAppointments] = useState([]);
 
+    // Fetch booked appointments and patient appointments on component mount
     useEffect(() => {
         fetchBookedAppointments();
         fetchPatientAppointments();
     }, []);
 
+    // Function to fetch booked appointments for the doctor
     const fetchBookedAppointments = () => {
         axios.get(`http://localhost:8080/api/appointments/getAppointmentsByDoctor/${doctorId}`)
             .then(res => setBookedAppointments(res.data))
             .catch(err => console.error("Error fetching doctor appointments:", err));
     };
 
+    // Function to fetch appointments booked by the patient
     const fetchPatientAppointments = () => {
         axios.get(`http://localhost:8080/api/appointments/getAppointmentsByPatient/${patientId}`)
             .then(res => setPatientAppointments(res.data))
             .catch(err => console.error("Error fetching patient appointments:", err));
     };
 
+    // Function to get booked times for a specific date
+    // and filter patient appointments by doctorId
     const getTimesByCondition = (appointments, date) => {
         return appointments
             .filter(appt => new Date(appt.appointmentDateTime).toDateString() === date.toDateString())
             .map(appt => new Date(appt.appointmentDateTime).toTimeString().slice(0, 5));
     };
 
+    // Get booked times for the selected date and filter patient appointments by doctorId
+    // This will return an array of time strings in HH:MM format
     const bookedTimes = getTimesByCondition(bookedAppointments, selectedDate);
     const patientTimes = getTimesByCondition(
         patientAppointments.filter(appt => parseInt(appt.doctorId) === parsedDoctorId),
@@ -97,17 +109,26 @@ function AppointmentPage() {
 
     const timeSlots = generateTimeSlotsForDay(selectedDate.getDay());
 
+
+    // Handle time selection and booking logic
+    // If the time is already booked by another patient, it won't be selectable
+    // If the time is booked by the patient, it will be selectable but not clickable
+    // If the time is available, it will be selectable and clickable
+    // If the time is selected, it will be highlighted
     const handleTimeClick = (timeValue) => {
         if (!bookedTimes.includes(timeValue) || patientTimes.includes(timeValue)) {
             setSelectedTime(timeValue);
         }
     };
 
+    // Handle date selection and reset selected time
     const handleDateClick = (date) => {
         setSelectedDate(date);
         setSelectedTime(null);
     };
 
+   // Handle booking logic
+   // This function will be called when the user clicks the "Book an appointment" button
     const handleBooking = () => {
         setBookingConfirmation({ type: '', message: "" });
 
@@ -169,10 +190,12 @@ function AppointmentPage() {
     return (
         <div className='body'>
             <div className="appointment-container">
+
                 <header className="header">
                     <h1>Appointment Booking</h1>
                 </header>
 
+                {/* Display doctor details if available */}
                 {doctorDetails && (
                     <div className="doctor-card">
                         <div className="doctor-image">
@@ -187,6 +210,7 @@ function AppointmentPage() {
                     </div>
                 )}
 
+                { /* Booking section with date and time selection */}
                 <div className="booking-section">
                     <h3>Booking Slots</h3>
                     <div className="booking-container">
