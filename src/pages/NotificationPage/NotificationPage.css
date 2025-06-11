@@ -1,0 +1,106 @@
+.notification-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px !important;
+}
+
+/* Optional: Control card width to fit 3 per row nicely */
+.notification-card {
+  min-width: 400px;
+  border: none;
+  border-radius: 16px;
+}
+
+
+/* Header Styling */
+.notification-card .card-header {
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  font-size: 1.1rem;
+}
+
+.fw-semibold{
+    color: #000000;
+}
+
+.doctor-profile{
+    background-color: #d0d0d053;
+    border-radius: 10px;
+    padding: 4px 8px;
+}
+/* Doctor Image */
+.doctor-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+/* Appointment Details Hover Styling */
+.appointment-details .list-group-item {
+  border: none;
+  transition: background-color 0.3s ease;
+  border-radius: 8px;
+}
+
+.appointment-details .list-group-item:hover {
+  background-color: #f1f5ff;
+}
+
+.appointment-details1{
+    background-color: #f8d7da;
+    border-radius: 10px;
+    
+}
+
+/* When hovering the entire appointment detail row */
+.appointment-details .list-group-item:hover .text-primary  {
+  font-size: 1.5rem !important; /* adjust as needed */
+  transition: font-size 0.3s ease;
+}
+
+.appointment-details .list-group-item:hover .text-danger{
+      font-size: 1.5rem !important; /* adjust as needed */
+  transition: font-size 0.3s ease;
+}
+
+
+
+/* General Button Hover Transition */
+.button-hover-effect {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Primary Button (Read) - Custom Blue */
+.btn-primary.button-hover-effect {
+  background-color: #1e40af; /* Tailwind's blue-800 */
+  border-color: #1e40af;
+  color: #fff;
+}
+
+.btn-primary.button-hover-effect:hover {
+  background-color: #1a237e; /* Darker blue for hover */
+  border-color: #1a237e;
+  color: #fff;
+}
+
+/* Outline Danger Button (Delete) - Refined Red */
+.btn-outline-danger.button-hover-effect {
+  border-color: #dc3545;
+  color: #dc3545;
+  background-color: transparent;
+}
+
+.btn-outline-danger.button-hover-effect:hover {
+  background-color: #dc3545;
+  color: #fff;
+  border-color: #dc3545;
+}
+
+/* Badge */
+.badge.bg-light.text-dark {
+  font-size: 0.75rem;
+  padding: 0.3em 0.6em;
+  border: 1px solid #ced4da;
+  background-color: #f8f9fa;
+}
