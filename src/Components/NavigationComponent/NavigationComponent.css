@@ -70,6 +70,48 @@
   margin: 0.5rem 0;
 }
 
+
+.bell-container {
+  position: relative;
+  display: inline-block;
+  margin-left: 12px;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+}
+
+.bell-container:hover {
+  background-color: #e0f0ff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.bell-container:active {
+  background-color: #6ebbf6;
+  transform: scale(0.95);
+}
+
+.bell-container.active {
+  background-color: #cce8ff;
+  color: #007bff;
+}
+
+
+.notification-badge {
+  position: absolute;
+  right: 5px;
+  top: 0.5px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.6rem;
+  font-weight: bold;
+}
+
+
 /* Navbar image */
 .Navbar .img img {
   height: 70px;

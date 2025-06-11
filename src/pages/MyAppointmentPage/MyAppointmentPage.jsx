@@ -9,6 +9,7 @@ function MyAppointmentPage() {
   const [appointments, setAppointments] = useState([]);
   const userId = localStorage.getItem("patientId") || "";
 
+  // Fetch appointments on component mount
   useEffect(() => {
     axios
       .get("http://localhost:8080/api/appointments/getAppointments")
@@ -62,6 +63,7 @@ function MyAppointmentPage() {
       });
   }, [userId]);
 
+  // Function to handle appointment cancellation
   const handleCancelAppointment = async (appointmentId, appointmentDateTime) => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -93,7 +95,7 @@ function MyAppointmentPage() {
     }
   };
 
-
+ // This effect sets up an IntersectionObserver to add a class for scroll animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries, observer) => {

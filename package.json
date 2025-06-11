@@ -13,6 +13,7 @@
     "axios": "^1.9.0",
     "bootstrap": "^5.3.3",
     "doctorappointmentbookingsystem-front-end-": "file:",
+    "primereact": "^10.9.6",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.5",
     "react-dom": "^18.3.1",

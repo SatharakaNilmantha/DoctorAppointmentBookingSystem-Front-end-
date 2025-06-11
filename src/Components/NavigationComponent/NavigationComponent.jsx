@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './NavigationComponent.css';
 
+        
+        
+
 import MenuLink from '../MenuLink/MenuLink';
 import { Navbar, Nav, Container, Image } from 'react-bootstrap';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -11,6 +14,10 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
 
 import axios from 'axios';
+
+
+import { FiBell } from 'react-icons/fi'; // Feather Bell Icon
+
 
 function NavigationComponent() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -77,6 +84,8 @@ function NavigationComponent() {
     window.scrollTo({ top: 0 });
   };
 
+  const notificationCount = 2;
+
   return (
     <Navbar bg="light" expand="lg" data-bs-theme="light" className="Navbar">
       <Container>
@@ -124,6 +133,12 @@ function NavigationComponent() {
             )}
           </Nav>
         </Navbar.Collapse>
+        <Link to="/notifications" onClick={handleClick} className={`bell-container ${location.pathname === '/notifications' ? 'active' : ''}`}>
+            <FiBell size={30} />
+           {notificationCount > 0 && (
+           <span className="notification-badge">{notificationCount}</span>
+             )}
+        </Link>
       </Container>
     </Navbar>
   );

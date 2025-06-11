@@ -23,6 +23,8 @@ import MyAppointmentPage from './pages/MyAppointmentPage/MyAppointmentPage.jsx';
 import MyProfilePage from './pages/MyProfilePage/MyProfilePage.jsx';
 import AppointmentHistory from './pages/AppointmentHistoryPage/AppointmentHistoryPage.jsx';
 
+import NotificationPage from './pages/NotificationPage/NotificationPage.jsx';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -79,6 +81,10 @@ const router = createBrowserRouter([
     element: <MyProfilePage/>,
   },
   
+  {
+    path: "/notifications",
+    element: <NotificationPage/>,
+  },
 
 ]);
 
