@@ -21,6 +21,7 @@ import LoginPage from './pages/LoginPage/LoginPage.jsx';
 import RegisterPage from './pages/RegisterPage/RegisterPage.jsx';
 import MyAppointmentPage from './pages/MyAppointmentPage/MyAppointmentPage.jsx';
 import MyProfilePage from './pages/MyProfilePage/MyProfilePage.jsx';
+import AppointmentHistory from './pages/AppointmentHistoryPage/AppointmentHistoryPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -66,8 +67,12 @@ const router = createBrowserRouter([
   },
    
   {
-    path: "/myAppointment",
+    path: "/upcomingAppointments",
     element: <MyAppointmentPage/>,
+  },
+    {
+    path: "/history",
+    element: <AppointmentHistory/>,
   },
   {
     path: "/myprofile",

@@ -112,7 +112,8 @@ function NavigationComponent() {
                 className="user-dropdown"
               >
                 <Dropdown.Item as={Link} to="/myProfile" onClick={handleClick}>My Profile</Dropdown.Item>
-                <Dropdown.Item as={Link} to="/myAppointment" onClick={handleClick}>My Appointments</Dropdown.Item>
+                <Dropdown.Item as={Link} to="/upcomingAppointments" onClick={handleClick}>Upcoming Visits	</Dropdown.Item>
+                <Dropdown.Item as={Link} to="/history" onClick={handleClick}>Appointment History</Dropdown.Item>
                 <Dropdown.Divider />
                 <Dropdown.Item onClick={handleLogout} className="text-danger">
                   <IoLogOutOutline className="me-2" /> Logout

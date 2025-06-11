@@ -116,13 +116,6 @@
   }
 
 
-  .type {
-    background-color: #b7f3da7f;
-    border: 1px solid #0101ca44;
-    color: #000000;
-    padding: 8px 20px;
-    border-radius: 100px;
-  }
   
   .appointment-details .row h2 {
     margin-top: 10px;
@@ -137,6 +130,32 @@
     color: #2c3e50;
   }
   
+.status-icon {
+  margin-right: 6px;
+  vertical-align: middle;
+  font-size: 30px;
+  transition: color 0.3s ease;
+}
+
+.accepted-icon {
+  color: #0ede53;
+  filter: drop-shadow(1px 1px 0 #000000);
+}
+
+.canceled-icon {
+  color: #ff7c7c;
+  filter: drop-shadow(1px 1px 0 #000000);
+}
+
+.pending-icon {
+  color: #d9c426;
+  filter: drop-shadow(1px 1px 0 #000000);
+}
+
+
+
+
+
   .row ,.row1 p{
     color: #2c3e50;
     font-size: 15px;
@@ -151,29 +170,32 @@
   
 /* MyAppointmentPage.css */
 
-.state {
+.state1 {
     background-color: #fff;
-    font-size: 13px;
+    font-size: 15px;
     color: #000000;
     padding: 8px;
     border-radius: 40px;
+    text-align: center;
+    font-weight: 600;
+    
 }
 
 /* Specific status styles */
-.accepted-status {
+.accepted-status1 {
   border: 1px solid green;
   color: green;
    background: linear-gradient( 45deg, #c8ffd3, #f7f8f7 )!important;
 }
 
-.pending-status {
+.pending-status1 {
   border: 1px solid #cac301;
   color: #cac301;
   background: linear-gradient( 45deg, #fffbc1, #ffffff )!important;
 
 }
 
-.canceled-status {
+.canceled-status1 {
   border: 1px solid #ca0101;
   color: #ca0101;
   background: linear-gradient( 45deg, #ffc1c1, #ffffff )!important;
