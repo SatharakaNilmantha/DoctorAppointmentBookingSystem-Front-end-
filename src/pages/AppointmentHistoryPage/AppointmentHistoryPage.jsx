@@ -3,7 +3,6 @@ import axios from "axios";
 import "./AppointmentHistoryPage.css";
 import HeaderContent from "../../Components/HeaderContent/HeaderContent.jsx";
 import BodyContent from "../../Components/BoadyContent/BodyContent.jsx";
-import FooterContent from "../../Components/FooterContent/FooterContent.jsx";
 
 import { FaCheckCircle, FaTimesCircle, FaHourglassHalf } from "react-icons/fa";
 
@@ -162,7 +161,6 @@ const getStatusIcon = (status) => {
           )}
         </div>
       </BodyContent>
-      <FooterContent />
     </>
   );
 }

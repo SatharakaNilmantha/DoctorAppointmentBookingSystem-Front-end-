@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './NavigationComponent.css';
-
-        
-        
 
 import MenuLink from '../MenuLink/MenuLink';
 import { Navbar, Nav, Container, Image } from 'react-bootstrap';
@@ -12,30 +9,38 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import logo from "../../images/logo/logo.png";
 import { IoLogOutOutline } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
+import { FiBell } from 'react-icons/fi';
 
 import axios from 'axios';
 
-
-import { FiBell } from 'react-icons/fi'; // Feather Bell Icon
-
-
 function NavigationComponent() {
+
+  // -------------------------State variables-------------------------//
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
   const [userData, setUserData] = useState({
     name: '',
     image: null
   });
 
-  const navigate = useNavigate();
+  const [notificationCount, setNotificationCount] = useState(0);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
+
+
+  // -------------------------Check login status and fetch user data on component mount-------------------------//
   useEffect(() => {
     const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
     const patientId = localStorage.getItem('patientId');
 
     setIsLoggedIn(loggedIn);
 
+
+//--------------Fetch user data-----------------------------------------------//
     if (loggedIn && patientId) {
-      // Get patient's name
+      // Fetch user name
       axios.get(`http://localhost:8080/api/patient/${patientId}`)
         .then(response => {
           const patient = response.data;
@@ -51,7 +56,8 @@ function NavigationComponent() {
           }));
         });
 
-      // Get patient image separately
+ //---------------------------------------------------------//
+      // Fetch user image
       axios.get(`http://localhost:8080/api/patient/image/${patientId}`, {
         responseType: 'blob'
       })
@@ -68,9 +74,26 @@ function NavigationComponent() {
             image: null
           }));
         });
+
+//-------------------------------------------------------------//
+      // Start polling for notification count
+      const interval = setInterval(() => {
+        axios.get(`http://localhost:8080/api/notification/getNotificationByPatient/${patientId}`)
+          .then(response => {
+            const unreadCount = response.data.filter(notification => notification.status === 'unread').length;
+            setNotificationCount(unreadCount);
+          })
+          .catch(() => {
+            setNotificationCount(0);
+          });
+      }, 30000); // every 30 seconds
+
+
+      return () => clearInterval(interval);
     }
   }, []);
 
+  // ----------------------------------------Handle logout------------------------------//
   const handleLogout = () => {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('userData');
@@ -80,11 +103,11 @@ function NavigationComponent() {
     navigate('/');
   };
 
+  // ----------------------------------------Scroll to top on link click------------------------------//
   const handleClick = () => {
     window.scrollTo({ top: 0 });
   };
 
-  const notificationCount = 2;
 
   return (
     <Navbar bg="light" expand="lg" data-bs-theme="light" className="Navbar">
@@ -121,7 +144,7 @@ function NavigationComponent() {
                 className="user-dropdown"
               >
                 <Dropdown.Item as={Link} to="/myProfile" onClick={handleClick}>My Profile</Dropdown.Item>
-                <Dropdown.Item as={Link} to="/upcomingAppointments" onClick={handleClick}>Upcoming Visits	</Dropdown.Item>
+                <Dropdown.Item as={Link} to="/upcomingAppointments" onClick={handleClick}>Upcoming Visits</Dropdown.Item>
                 <Dropdown.Item as={Link} to="/history" onClick={handleClick}>Appointment History</Dropdown.Item>
                 <Dropdown.Divider />
                 <Dropdown.Item onClick={handleLogout} className="text-danger">
@@ -133,12 +156,20 @@ function NavigationComponent() {
             )}
           </Nav>
         </Navbar.Collapse>
-        <Link to="/notifications" onClick={handleClick} className={`bell-container ${location.pathname === '/notifications' ? 'active' : ''}`}>
+
+   {/* Only show bell if logged in */}
+        {isLoggedIn && (
+          <Link
+            to="/notifications"
+            onClick={handleClick}
+            className={`bell-container ${location.pathname === '/notifications' ? 'active' : ''}`}
+          >
             <FiBell size={30} />
-           {notificationCount > 0 && (
-           <span className="notification-badge">{notificationCount}</span>
-             )}
-        </Link>
+            {notificationCount > 0 && (
+              <span className="notification-badge">{notificationCount}</span>
+            )}
+          </Link>
+        )}
       </Container>
     </Navbar>
   );
