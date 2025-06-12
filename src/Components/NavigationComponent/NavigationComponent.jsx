@@ -17,7 +17,7 @@ function NavigationComponent() {
 
   // -------------------------State variables-------------------------//
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  
+
   const [userData, setUserData] = useState({
     name: '',
     image: null
@@ -86,7 +86,7 @@ function NavigationComponent() {
           .catch(() => {
             setNotificationCount(0);
           });
-      }, 30000); // every 30 seconds
+      }, 3000); // every 3 seconds
 
 
       return () => clearInterval(interval);
