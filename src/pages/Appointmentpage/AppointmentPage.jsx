@@ -198,7 +198,7 @@ function AppointmentPage() {
                 {/* Display doctor details if available */}
                 {doctorDetails && (
                     <div className="doctor-card">
-                        <div className="doctor-image">
+                        <div className="doctorimage">
                             <img src={`http://localhost:8080/api/doctors/image/${doctorDetails.doctorId}`} alt="Doctor" />
                         </div>
                         <div className="doctor-details">

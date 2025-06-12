@@ -43,9 +43,13 @@ function LoginPage() {
             }
 
         } catch (err) {
-            
-            setPopup({ type: 'warning', message: "Please check your internet connection."});
-        }
+            if (err.response && err.response.data) {
+            setPopup({ type: 'error', message: err.response.data });
+        } else {
+        setPopup({ type: 'warning', message: "Please check your internet connection." });
+       }
+    }
+
     };
 
     return (

@@ -49,15 +49,15 @@
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
-   
     text-align: center;
 }
 
-.doctor-image img {
+.doctorimage img {
     width: 130px;
     height: auto;
     object-fit: cover;
     border-radius: 50%;
+    border: #0056b3 1px solid;
  
 }
 

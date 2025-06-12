@@ -3,7 +3,7 @@ import axios from "axios";
 import "./MyAppointmentPage.css";
 import HeaderContent from "../../Components/HeaderContent/HeaderContent.jsx";
 import BodyContent from "../../Components/BoadyContent/BodyContent.jsx";
-import FooterContent from "../../Components/FooterContent/FooterContent.jsx";
+
 
 function MyAppointmentPage() {
   const [appointments, setAppointments] = useState([]);
@@ -127,7 +127,7 @@ function MyAppointmentPage() {
             accordingly.
           </p>
           {appointments.length > 0 ? (
-            <div className="appointment-card-container">
+            <div className="appointment-card-container ">
               {appointments.map((appointment, index) => (
                 <div
                   key={index}
@@ -185,7 +185,6 @@ function MyAppointmentPage() {
           )}
         </div>
       </BodyContent>
-      <FooterContent />
     </>
   );
 }
