@@ -81,6 +81,8 @@
   cursor: pointer;
   color: black;
   text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  
 }
 
 .bell-container:hover {
@@ -94,8 +96,7 @@
 }
 
 .bell-container.active {
-  background-color: #cce8ff;
-  color: #007bff;
+  background-color: #e0f0ff;
 }
 
 
