@@ -1,0 +1,91 @@
+/* Floating chatbot icon button */
+.chatbot-button {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Chatbot image with smooth vertical vibration and shadow */
+.chatbot-image {
+  width: 130px;
+  margin-left: 20px;
+  border-radius: 100%;
+  
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.4));
+  animation: vibrateUpDown 1s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.chatbot-button:hover .chatbot-image {
+  animation: none;
+  transform: scale(1.0) translateY(1px);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+/* Smooth up/down vibration with shadow change */
+@keyframes vibrateUpDown {
+  0%, 100% {
+    transform: translateY(0);
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.4));
+  }
+  50% {
+    transform: translateY(-4px); /* move up */
+    filter: drop-shadow(0 7px 10px rgba(0, 0, 0, 0.35)); /* shadow moves down and softens */
+  }
+}
+
+/* Hover effect: scale button */
+.chatbot-button:hover {
+  transform: scale(1.05);
+}
+
+/* Modal wrapper covering entire viewport */
+.chatbot-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* Modal content container styling */
+.chatbot-modal-content {
+  background-color: white;
+  width: 90%;
+  max-width: 900px;
+  height: 97%;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Close button styling */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  background: transparent;
+  border: none;
+  font-size: 40px;
+  font-weight: bold;
+  color: #666;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Close button hover color change */
+.close-btn:hover {
+  color: #000;
+}
