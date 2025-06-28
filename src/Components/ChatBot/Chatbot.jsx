@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Chatbot.css';
 import defaultUser from "../../images/logo/logo.png";
-import { FaRobot, FaListUl } from "react-icons/fa";
+import { FaRobot, FaListUl, FaSync } from "react-icons/fa";
 import { RiStethoscopeFill } from "react-icons/ri";
 import { LuSend } from "react-icons/lu";
 import { GiMedicines } from "react-icons/gi";
@@ -15,12 +15,11 @@ function Chatbot() {
   const [loading, setLoading] = useState(false);
   const [doctors, setDoctors] = useState([]);
   const [userImage, setUserImage] = useState(defaultUser);
+  const [isRefreshingDoctors, setIsRefreshingDoctors] = useState(false);
   const messagesEndRef = useRef(null);
 
   const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
   const GEMINI_API_KEY = 'AIzaSyBtQ0pa0QyRAqwBbaS7ZLVhXxLcjyrJJNI';
-  const DOCTORS_STORAGE_KEY = 'medassist_doctors_data';
-  const DOCTORS_CACHE_TIMEOUT = 12 * 60 * 60 * 1000; // 12 hours
 
   // Medical departments mapping with symptoms
   const departmentKeywords = {
@@ -90,7 +89,6 @@ function Chatbot() {
 
     fetchUserImage();
 
-    // Clean up object URL when component unmounts
     return () => {
       if (userImage !== defaultUser) {
         URL.revokeObjectURL(userImage);
@@ -98,58 +96,51 @@ function Chatbot() {
     };
   }, [patientId]);
 
-  // Load doctors data with enhanced information
+  // Enhance doctor data with default values
+  const enhanceDoctorData = (doctors) => {
+    return doctors.map(doctor => ({
+      ...doctor,
+      fees: doctor.fees !== undefined ? doctor.fees : (defaultFees[doctor.department] || 800),
+      shiftStartTime: doctor.shiftStartTime || '9:00 AM',
+      shiftEndTime: doctor.shiftEndTime || '5:00 PM',
+      weekendStartTime: doctor.weekendStartTime || '10:00 AM',
+      weekendEndTime: doctor.weekendEndTime || '3:00 PM',
+      phoneNumber: doctor.phoneNumber || 'Not provided'
+    }));
+  };
+
+  // Fetch fresh doctor data
+  const fetchDoctors = async () => {
+    setIsRefreshingDoctors(true);
+    try {
+      const response = await axios.get('http://localhost:8080/api/doctors/getDoctor');
+      const activeDoctors = enhanceDoctorData(response.data.filter(doctor => doctor.status === 'Active'));
+      setDoctors(activeDoctors);
+    } catch (error) {
+      console.error('Error fetching doctors:', error);
+      setMessages(prev => [...prev, {
+        text: "Failed to update doctor list. Please try again later.",
+        sender: 'ai',
+        timestamp: new Date().toISOString()
+      }]);
+    } finally {
+      setIsRefreshingDoctors(false);
+    }
+  };
+
+  // Load doctors data when component mounts
   useEffect(() => {
-    const fetchDoctors = async () => {
-      try {
-        // Check cached doctors data
-        const cachedData = localStorage.getItem(DOCTORS_STORAGE_KEY);
-        const now = new Date().getTime();
-        
-        if (cachedData) {
-          const { data, timestamp } = JSON.parse(cachedData);
-          if (now - timestamp < DOCTORS_CACHE_TIMEOUT) {
-            setDoctors(enhanceDoctorData(data.filter(doctor => doctor.status === 'Active')));
-            return;
-          }
-        }
-
-        // Fetch fresh data
-        const response = await axios.get('http://localhost:8080/api/doctors/getDoctor');
-        const activeDoctors = enhanceDoctorData(response.data.filter(doctor => doctor.status === 'Active'));
-        
-        const storageData = {
-          data: response.data,
-          timestamp: now
-        };
-        localStorage.setItem(DOCTORS_STORAGE_KEY, JSON.stringify(storageData));
-        
-        setDoctors(activeDoctors);
-      } catch (error) {
-        console.error('Error fetching doctors:', error);
-        const cachedData = localStorage.getItem(DOCTORS_STORAGE_KEY);
-        if (cachedData) {
-          const { data } = JSON.parse(cachedData);
-          setDoctors(enhanceDoctorData(data.filter(doctor => doctor.status === 'Active')));
-        }
-      }
-    };
-
-    // Enhance doctor data with default values
-    const enhanceDoctorData = (doctors) => {
-      return doctors.map(doctor => ({
-        ...doctor,
-        fees: doctor.fees !== undefined ? doctor.fees : (defaultFees[doctor.department] || 800),
-        shiftStartTime: doctor.shiftStartTime || '9:00 AM',
-        shiftEndTime: doctor.shiftEndTime || '5:00 PM',
-        weekendStartTime: doctor.weekendStartTime || '10:00 AM',
-        weekendEndTime: doctor.weekendEndTime || '3:00 PM',
-        phoneNumber: doctor.phoneNumber || 'Not provided'
-      }));
-    };
-    
     fetchDoctors();
   }, []);
+
+  const refreshDoctors = async () => {
+    setMessages(prev => [...prev, {
+      text: "Updating doctor list...",
+      sender: 'ai',
+      timestamp: new Date().toISOString()
+    }]);
+    await fetchDoctors();
+  };
 
   const getRecommendedDoctors = (inputText) => {
     const lowerInput = inputText.toLowerCase();
@@ -247,6 +238,11 @@ function Chatbot() {
                           );
 
       if (isDoctorQuery) {
+        // Ensure we have the latest doctor data before showing results
+        if (!isRefreshingDoctors) {
+          await fetchDoctors();
+        }
+
         let { recommendedDoctors, recommendedDepartment, askedAboutFees, askedForCount, askedForAvailability } = getRecommendedDoctors(input);
         
         let responseText = '';
@@ -270,7 +266,7 @@ function Chatbot() {
             : "Here are our available doctors:";
         }
 
-        // Format doctor information with proper fee handling
+        // Format doctor information
         let doctorInfo = recommendedDoctors.map(doctor => {
           let info = `**${doctor.fullName || 'Name not available'}**  
           - **Specialty**: ${doctor.department || 'Not specified'}  
@@ -294,8 +290,11 @@ function Chatbot() {
           return info;
         }).join('\n\n');
 
+     
+        const refreshText = "";
+
         setMessages(prev => [...prev, {
-          text: `${responseText}\n\n${doctorInfo}`,
+          text: `${responseText}\n\n${doctorInfo}${refreshText}`,
           sender: 'ai',
           timestamp: new Date().toISOString()
         }]);
@@ -365,6 +364,13 @@ function Chatbot() {
     const event = { preventDefault: () => {} };
     await handleSubmit(event);
   };
+
+  // Handle refresh button clicks
+  useEffect(() => {
+    const handleRefreshClick = () => refreshDoctors();
+    window.addEventListener('refreshDoctors', handleRefreshClick);
+    return () => window.removeEventListener('refreshDoctors', handleRefreshClick);
+  }, []);
 
   return (
     <div className='main'>
