@@ -1,5 +1,5 @@
 import React, { useEffect} from 'react';
-import './AboutPage.CSS'
+import './AboutPage.css'
 import HeaderContent from '../../Components/HeaderContent/HeaderContent'
 import BodyContent from '../../Components/BoadyContent/BodyContent'
 import AboutSection from '../../Components/AboutSection/AboutSection'
