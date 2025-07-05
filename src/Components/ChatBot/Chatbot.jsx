@@ -18,8 +18,8 @@ function Chatbot() {
   const [isRefreshingDoctors, setIsRefreshingDoctors] = useState(false);
   const messagesEndRef = useRef(null);
 
-  const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
-  const GEMINI_API_KEY = 'AIzaSyBtQ0pa0QyRAqwBbaS7ZLVhXxLcjyrJJNI';
+  const GEMINI_API_URL = import.meta.env.VITE_GEMINI_API_URL;
+  const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
   // Medical departments mapping with symptoms
   const departmentKeywords = {
